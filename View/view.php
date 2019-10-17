@@ -3,7 +3,7 @@
 require_once('libs/Smarty.class.php');
 
 // dar nombre al view
-class view {
+class ProductosView {
 
     function __construct(){
 
