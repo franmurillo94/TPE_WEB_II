@@ -1,7 +1,7 @@
 <?php
 //actualizar los nombres cuando esten
-require_once "./models/productos_model.php";
-require_once "./views/productos_view.php";
+require_once "./model/productos_model.php";
+require_once "./view/productos_view.php";
 // dar nombre al controler
 class ProductosController {
 

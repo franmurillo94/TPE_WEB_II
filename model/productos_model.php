@@ -1,6 +1,6 @@
 <?php
 // dar nombre al modelo
-class model {
+class ProductosModel {
 
     private $db;
 // linkear nuestra base de datos
@@ -8,7 +8,7 @@ class model {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
     }
 
-    public function GetProducto(){
+    public function GetProductos(){
         $sentencia = $this->db->prepare( "select * from producto");
         $sentencia->execute();
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
