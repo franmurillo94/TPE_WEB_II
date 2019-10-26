@@ -1,22 +1,24 @@
 <?php
 
-//require_once('libs/Smarty.class.php');
+require_once('libs/Smarty.class.php');
 
-// dar nombre al view
+// CLASE PARA LA VIEW DE LA TABLA PRODUCTOS
 class ProductosView {
-
+    
     function __construct(){
 
     }
-    // dar nombre a los metodos y variables
-    public function DisplayProducto($tareas){
-        /*
+    // FUNCION QUE MUESTRA LOS PRODUCTOS
+    public function DisplayProducto($producto){ 
+         
         $smarty = new Smarty();
-        $smarty->assign('titulo',"Mostrar Tareas");
+        $smarty->assign('titulo',"Mostrar Producto");
         $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_tareas',$tareas);
-        $smarty->display('templates/ver_tareas.tpl');
-        */
-        echo "cargo";
+        $smarty->assign('lista_productos',$producto);
+        $smarty->display('templates/tabla_productos.tpl');
+        
     }
+    
 }
+
+?>

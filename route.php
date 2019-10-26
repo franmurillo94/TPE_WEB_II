@@ -1,7 +1,6 @@
 <?php
 
-
-require_once "controller/productos_controler.php";
+require_once "controller/productos_controller.php";
 
 $action = $_GET["action"];
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -20,6 +19,8 @@ if($action == ''){
             $controller->InsertarProducto();
         }elseif($partesURL[0] == "borrar") {
             $controller->BorrarProducto($partesURL[1]);
+        }elseif($partesURL[0] == "editar") {
+            $controller->EditarProducto($partesURL[1]);
         }
     }
 }
