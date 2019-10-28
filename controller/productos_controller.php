@@ -10,7 +10,6 @@ class ProductosController {
     private $view;
 
 	function __construct(){
-
         // INICIALIZAMOS LAS CLASES MODEL Y VIEW
         $this->model = new ProductosModel();
         $this->view = new ProductosView();
@@ -18,7 +17,6 @@ class ProductosController {
 
     // TRAE EL ARREGLO DE PRODUCTOS DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetProductos(){
-        
         $productos = $this->model->GetProductos();
         $this->view->DisplayProducto($productos);
         

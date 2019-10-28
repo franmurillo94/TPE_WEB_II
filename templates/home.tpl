@@ -1,6 +1,6 @@
 {include file="top.tpl"}
 {include file="nav.tpl"}
-<div class="container">
+<div class="container-fluid">
 
 <h1> Hola Mundo </h1>
 

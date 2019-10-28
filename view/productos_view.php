@@ -10,7 +10,6 @@ class ProductosView {
     }
     // FUNCION QUE MUESTRA LOS PRODUCTOS
     public function DisplayProducto($producto){ 
-         
         $smarty = new Smarty();
         $smarty->assign('titulo',"Mostrar Producto");
         $smarty->assign('BASE_URL',BASE_URL);

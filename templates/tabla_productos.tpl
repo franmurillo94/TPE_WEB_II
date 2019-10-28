@@ -1,6 +1,7 @@
 {include file="top.tpl"}
 {include file="nav.tpl"}
 
+<div class="container-fluid">
 <table class="table table-dark">
   <thead>
     <tr>
@@ -11,8 +12,6 @@
   </thead>
   <tbody>
     {foreach from=$lista_productos item=producto}
-      
-      
       <tr>
         <td>{$producto->nombre}</td>
         <td>{$producto->descripcion}</td>
@@ -24,8 +23,9 @@
       {/foreach}
   </tbody>
 </table>
-
-
 {include file="form_productos.tpl"}
+</div>
+
+
 
 {include file="footer.tpl"}
