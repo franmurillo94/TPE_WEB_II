@@ -16,8 +16,10 @@
         <td>{$producto->nombre}</td>
         <td>{$producto->descripcion}</td>
         <td>{$producto->precio}</td>
+        <td>{$producto->id_categoria}</td>
         <td><a href='borrar/{$producto->id_producto}'>Borrar</a></td>
         <td><a href='editar/{$producto->id_producto}'>Editar</a></td>
+        <td scope="col"> <a href="product/{$products->id_product}">Detalle</th>
         <td> {$producto->id_producto}</td>
       </tr>
       {/foreach}
