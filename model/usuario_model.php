@@ -1,33 +1,25 @@
 <?php
 
 
-class UsuarioModel
-{
+class UsuarioModel{
+  
   private $db;
 
   function __construct()
   {
-    $this->db = $this->Connect();
+    $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
   }
 
-  function Connect(){
-    return new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
-  }
-
-  function GetAll(){
-      $sentencia = $this->db->prepare("select * from usuario");
-      $sentencia->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  }
-
+  // INSERTAR
   function InsertarUsuario($nombre,$clave){
     $sentencia = $this->db->prepare("INSERT INTO usuario(nombre,clave) VALUES(?,?)");
     $sentencia->execute(array($nombre,$clave));
   }
-
-  function GetUsuario($nombre){
-      $sentencia = $this->db->prepare( "SELECT * from usuario where nombre=? limit 1");
-      $sentencia->execute(array($nombre));
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  // GET PASSWOERD
+  public function GetClave($nombre){
+    $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE nombre = ?");
+    $sentencia->execute(array($nombre));
+    $clave = $sentencia->fetch(PDO::FETCH_OBJ);   
+    return $clave;
   }
 }

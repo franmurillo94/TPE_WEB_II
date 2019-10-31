@@ -2,7 +2,7 @@
 {include file="nav.tpl"}
 
 <div class="container-fluid text-center" id="container">
- <form class="form-signin text-center" method="post" action="InsertUsuario">
+ <form class="form-signin text-center" method="post" action="insertarUsuario">
       <h1 class="h3 mb-3 font-weight-normal">REGISTRO</h1>
       <h5>USUARIO</h5>
       <label for="inputUser" class="sr-only">Nombre de usuario</label>
