@@ -19,20 +19,24 @@ class ProductosController {
     public function GetProductos(){
         $productos = $this->model->GetProductos();
         $this->view->DisplayProducto($productos);
-        
-        //$this->view->DisplayProducto(); -------> PROBAMOS EL VIEW SIN TRAER INFO
     }
-    
+    // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
+    public function GetProducto($id){
+        $productos = $this->model->GetProducto();
+        $this->view->DisplayProducto($productos);
+    }
+    // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){
 
-        $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio']);
+        $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
         header("Location: " . BASE_URL);
     }
-    
+    // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarProducto($id){
         $this->model->BorrarProducto($id);
         header("Location: " . BASE_URL);
     }
+    // EDITAR UN PRODUCTO DE LA TABLA
     public function EditarProducto($id){
         $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$id);
         header("Location: " . BASE_URL);

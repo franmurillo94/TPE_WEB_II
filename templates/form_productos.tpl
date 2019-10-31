@@ -11,5 +11,9 @@
     <label for="precio">Precio producto:</label>
     <input type="number" class="form-control" id="precio" name="precio" placeholder="Enter precio del producto">
   </div>
+  <div class="form-group">
+    <label for="categoria">Categoria producto:</label>
+    <input type="number" class="form-control" id="categoria" name="categoria" placeholder="Enter categoria del producto">
+  </div>
   <input type="submit" class="btn btn-primary" value="insertar">
 </form>
