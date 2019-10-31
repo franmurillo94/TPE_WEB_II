@@ -25,7 +25,7 @@ class UsuarioController
     $this->model->InsertarUsuario($nombre, $hash);
     session_start();
     $_SESSION['nombre'] = $nombre;
-    $_SESSION['admin'] = 0;
+    $_SESSION['admin'] = 0; 
     header("registrarse");
   }
   function registro(){
