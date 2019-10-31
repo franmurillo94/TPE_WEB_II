@@ -15,10 +15,7 @@
         <a class="nav-link" href="{$BASE_URL}">Categorias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{$BASE_URL}login">Iniciar Sesion</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{$BASE_URL}registro">Registrarse</a>
+        <a class="nav-link" href="{$BASE_URL}">LogOut</a>
       </li>
     </ul>
   </div>
