@@ -2,7 +2,8 @@
 {include file="nav.tpl"}
 <div class="container-fluid">
 
-<h1> Hola Mundo </h1>
+
+{include file="registro.tpl"}
 
 
 
