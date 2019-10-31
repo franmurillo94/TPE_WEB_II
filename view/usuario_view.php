@@ -1,23 +1,21 @@
 <?php
 require_once('libs/Smarty.class.php');
 class UsuarioView{
-    
-    private $smarty;
 
-        function __construct()
-        {
-             $this->smarty = new Smarty();
-
+        function __construct(){
         }
 
-        function Mostrar($Usuarios){
-            $this->smarty->assign('Usuarios',$Usuarios);
-            $this->smarty->debugging = true;
-            $this->smarty->display('./templates/mostrarUsuarios.tpl');
+        public function DisplayLogin(){
+
+            $smarty = new Smarty();
+            $smarty->assign('titulo',"Login");
+            $smarty->assign('BASE_URL',BASE_URL);
+            $smarty->display('templates/login.tpl');
         }
-        function registro(){
-            $this->smarty->assign('titulo',"Mostrar Producto");
-            $this->smarty->assign('BASE_URL',BASE_URL);                    
-            $this->smarty->display('templates/registro.tpl');  
+        function DisplayRegistro(){
+            $smarty = new Smarty();
+            $smarty->assign('titulo',"Mostrar Producto");
+            $smarty->assign('BASE_URL',BASE_URL);                    
+            $smarty->display('templates/registro.tpl');  
         }
 }
