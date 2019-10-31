@@ -13,5 +13,4 @@
 <div class="text-center header">
         <h1>Electro House</h1>
         <h6>Tecnología para tu hogar.</h6>
-        
-    </div>
+</div>
