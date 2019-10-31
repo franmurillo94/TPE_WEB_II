@@ -15,6 +15,21 @@ class ProductosController {
         $this->view = new ProductosView();
     }
 
+    public function checkLogIn(){
+        session_start();
+        
+        if(!isset($_SESSION['userId'])){
+            header("Location: " . URL_LOGIN);
+            die();
+        }
+
+        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
+            header("Location: " . URL_LOGOUT);
+            die(); // destruye la sesión, y vuelve al login
+        } 
+        $_SESSION['LAST_ACTIVITY'] = time();
+    }
+
     // TRAE EL ARREGLO DE PRODUCTOS DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetProductos(){
         $productos = $this->model->GetProductos();
@@ -27,12 +42,13 @@ class ProductosController {
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){
-
+        $this->checkLogIn();gffffffffffffigfci
         $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
         header("Location: " . BASE_URL);
     }
     // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarProducto($id){
+        $this->checkLogIn();
         $this->model->BorrarProducto($id);
         header("Location: " . BASE_URL);
     }
