@@ -32,6 +32,8 @@ if($action == ''){
             $usuario_controller->DisplayLogin();
         }elseif($partesURL[0] == "insertarUsuario") {
             $usuario_controller->InsertarUsuario();
+        }elseif($partesURL[0] == "iniciarSesion") {
+            $usuario_controller->Login();
         }
         /*elseif($partesURL[0] == "editar") {
             $productos_controller->EditarProducto($partesURL[1]);

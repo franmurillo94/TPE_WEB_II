@@ -2,7 +2,7 @@
 
 
 class UsuarioModel{
-  
+
   private $db;
 
   function __construct()
@@ -16,7 +16,7 @@ class UsuarioModel{
     $sentencia->execute(array($nombre,$clave));
   }
   // GET PASSWOERD
-  public function GetClave($nombre){
+  public function GetUsuario($nombre){
     $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE nombre = ?");
     $sentencia->execute(array($nombre));
     $clave = $sentencia->fetch(PDO::FETCH_OBJ);   
