@@ -2,6 +2,7 @@
 
 require_once "./view/usuario_view.php";
 require_once "./model/usuario_model.php";
+require_once "./view/login_view.php";
 
 class UsuarioController{
   private $view;
@@ -37,7 +38,7 @@ class UsuarioController{
     $clave = $_POST["clave"];
     $hash = password_hash($clave, PASSWORD_DEFAULT);
     $this->model->InsertarUsuario($nombre, $hash);
-    $this->view->DisplayLogin();
+    $this->login->DisplayLogin();
   }
 
 }

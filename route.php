@@ -2,6 +2,7 @@
 
 require_once "controller/productos_controller.php";
 require_once "controller/usuario_controller.php";
+require_once "controller/login_controller.php";
 
 
 $action = $_GET["action"];
@@ -15,6 +16,7 @@ define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].d
 
 $productos_controller = new ProductosController();
 $usuario_controller = new UsuarioController();
+$login_controller = new LoginController();
 //$categorias_controller = new CategoriasController();
 
 if($action == ''){
@@ -34,11 +36,11 @@ if($action == ''){
         }elseif($partesURL[0] == "registro") {
             $usuario_controller->DisplayRegistro();
         }elseif($partesURL[0] == "login") {
-            $usuario_controller->DisplayLogin();
+            $login_controller->DisplayLogin();
         }elseif($partesURL[0] == "insertarUsuario") {
             $usuario_controller->InsertarUsuario();
         }elseif($partesURL[0] == "iniciarSesion") {
-            $usuario_controller->Login();
+            $login_controller->Login();
         }elseif($partesURL[0] == "logout") {
             echo "jajaj";
         }
