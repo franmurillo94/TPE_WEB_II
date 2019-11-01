@@ -1,5 +1,5 @@
 {include file="top.tpl"}
-{include file="nav.tpl"}
+{include file="nav_adm.tpl"}
 <div class="container-fluid">
 <table class="table table-dark">
   <thead>
