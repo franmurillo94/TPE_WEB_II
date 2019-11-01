@@ -17,6 +17,7 @@
       {/foreach}
   </tbody>
 </table>
+{include file="form_categoria_adm.tpl"}
 </div>
 
 {include file="footer.tpl"}

@@ -40,12 +40,10 @@ if($action == ''){
             $usuario_controller->InsertarUsuario();
         }elseif($partesURL[0] == "iniciarSesion") {
             $login_controller->Login();
-        }elseif($partesURL[0] == "logout") {
-            echo "jajaj";
         }elseif($partesURL[0] == "categorias") {
             $categorias_controller->GetCategorias();
         }
-        elseif($partesURL[0] == "categoriasAdm") {
+        elseif($partesURL[0] == "categoriaAdm") {
             $categorias_controller->GetCategoriasAdm();
         }
         elseif($partesURL[0] == "productosAdm") {
@@ -53,6 +51,9 @@ if($action == ''){
         }
         elseif($partesURL[0] == "logOut") {
             $login_controller->Logout();
+        }
+        elseif($partesURL[0] == "insertarCategoria") {
+           $categorias_controller->InsertarCategoria();
         }
         /*
         elseif($partesURL[0] == "editar") {
