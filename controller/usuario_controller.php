@@ -6,10 +6,12 @@ require_once "./model/usuario_model.php";
 class UsuarioController{
   private $view;
   private $model;
+  private $login;
 
   function __construct(){
     $this->view = new UsuarioView();
     $this->model = new UsuarioModel();
+    $this->login = new LoginView();
   }
   
                                                     // FUNCIONES DE REGISTRO
@@ -24,16 +26,11 @@ class UsuarioController{
     $clave= $_POST['clave'];
     $hash = password_hash($calve, PASSWORD_DEFAULT);
     $this->model->InsertarUsuario($nomnbre,$hash);
-    $this->view->DisplayLogin();
+    $this->login->DisplayLogin();
   }
 
                                                     // FUNCIONES DE LOGIN
 
-  
-  // MUESTRA EL LOGIN
-  public function DisplayLogin(){
-    $this->view->DisplayLogin();
-  }
   // INSERTA UN NUEVO USUARIO EN LA BD
   function InsertarUsuario(){
     $nombre = $_POST["nombre"];
@@ -42,25 +39,5 @@ class UsuarioController{
     $this->model->InsertarUsuario($nombre, $hash);
     $this->view->DisplayLogin();
   }
-  // INICIA SESION
-  public function Login(){
-    $clave = $_POST['clave'];
-    $hash = password_hash($clave, PASSWORD_DEFAULT);
-    $usuario = $this->model->GetUsuario($_POST['nombre']);
-    if (password_verify($hash, $usuario->clave)){
-        session_start();
-        $_SESSION['user'] = $usuario->nombre;
-        $_SESSION['userId'] = $usuario->id_usuario;
-        header("Location: " . PRODUCTOS_ADM);
-      }else{
-        header("Location: " . LOGOUT);
-      }
-  }
-  
-  // LOGOUT
-  public function Logout(){
-    session_start();
-    session_destroy();
-    header("Location: " . LOGIN);
-  }
+
 }
