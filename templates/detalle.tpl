@@ -6,14 +6,16 @@
   <thead>
     <tr>
       <th scope="col">Producto</th>
-      <th scope="col">Detalle</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Precio</th>
     </tr>
   </thead>
   <tbody>
     {foreach from=$lista_productos item=producto}
       <tr>
         <td>{$producto->nombre}</td>
-        <td scope="col"> <a href="detalle/{$producto->id_producto}">Detalle</th>
+        <td>{$producto->descripcion}</td>
+        <td>{$producto->precio}</td>
       </tr>
       {/foreach}
   </tbody>

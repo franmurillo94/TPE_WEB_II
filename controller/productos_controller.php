@@ -45,9 +45,9 @@ class ProductosController {
         $this->view->DisplayProductoAdm($productos,$categorias);
     }
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
-    public function GetProducto($id){
-        $productos = $this->model->GetProducto();
-        $this->view->DisplayProducto($productos);
+    public function Detalle($id){
+        $productos = $this->model->GetProducto($id);
+        $this->view->DisplayDetalle($productos);
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){

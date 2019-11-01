@@ -29,6 +29,15 @@ class ProductosView {
         $smarty->display('templates/producto_adm.tpl');
         
     }
+    // FUNCION QUE MUESTRA LOS PRODUCTOS
+    public function DisplayDetalle($producto){ 
+        $smarty = new Smarty();
+        $smarty->assign('titulo',"Mostrar Producto");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('lista_productos',$producto);
+        $smarty->display('templates/detalle.tpl');
+        
+    }
 
     
 }

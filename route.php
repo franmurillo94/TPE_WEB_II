@@ -30,6 +30,8 @@ if($action == ''){
             $productos_controller->GetProductos();
         }elseif($partesURL[0] == "insertar") {
             $productos_controller->InsertarProducto();
+        }elseif($partesURL[0] == "detalle") {
+            $productos_controller->Detalle($partesURL[1]);
         }elseif($partesURL[0] == "borrar") {
             $productos_controller->BorrarProducto($partesURL[1]);
         }elseif($partesURL[0] == "registro") {
