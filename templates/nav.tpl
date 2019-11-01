@@ -9,7 +9,7 @@
         <a class="nav-link" href="{$BASE_URL}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{$BASE_URL}">Productos</a>
+        <a class="nav-link" href="{$BASE_URL}productos">Productos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{$BASE_URL}categorias">Categorias</a>

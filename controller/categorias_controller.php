@@ -28,6 +28,11 @@ class CategoriasController {
         $categoria = $this->model->GetCategoria($id);
         $this->view->DisplayCategoria($categoria);
     }
+    // TRAE EL ARREGLO DE categoria DEL MODEL Y LOS MUESTRA EN EL VIEW
+    public function GetCategoriasAdm(){
+        $categoria = $this->model->Getcategorias();
+        $this->view->DisplayCategoriaAdm($categoria);
+    }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarCategoria(){
 

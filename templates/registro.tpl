@@ -13,7 +13,7 @@
       <input type="password" id="clave" name="clave" class="form-control" placeholder="Contraseña" required="">
       <div class="checkbox mb-3">
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">REGISTRARME</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" value="insertarUsuario">REGISTRARME</button>
 
     </form>
     </div>

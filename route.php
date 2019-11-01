@@ -3,6 +3,7 @@
 require_once "controller/productos_controller.php";
 require_once "controller/usuario_controller.php";
 require_once "controller/login_controller.php";
+require_once "controller/categorias_controller.php";
 
 
 $action = $_GET["action"];
@@ -17,7 +18,7 @@ define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].d
 $productos_controller = new ProductosController();
 $usuario_controller = new UsuarioController();
 $login_controller = new LoginController();
-//$categorias_controller = new CategoriasController();
+$categorias_controller = new CategoriasController();
 
 if($action == ''){
     $productos_controller->GetProductos();
@@ -43,8 +44,13 @@ if($action == ''){
             $login_controller->Login();
         }elseif($partesURL[0] == "logout") {
             echo "jajaj";
+        }elseif($partesURL[0] == "categorias") {
+            $categorias_controller->GetCategorias();
         }
-        /*elseif($partesURL[0] == "editar") {
+        elseif($partesURL[0] == "categoriasAdm") {
+            $categorias_controller->GetCategoriasAdm();
+        }/*
+        elseif($partesURL[0] == "editar") {
             $productos_controller->EditarProducto($partesURL[1]);
         }*/
     }

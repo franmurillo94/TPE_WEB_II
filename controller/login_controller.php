@@ -22,16 +22,14 @@ class LoginController{
   // LOGIN 
   public function Login(){
     $clave = $_POST['clave'];
-    $hash = password_hash($clave, PASSWORD_DEFAULT);
     $usuario = $this->model->GetUsuario($_POST['nombre']);
-    $hola = true;
-    if (password_verify($hash, $usuario->clave)){
+    if (password_verify($clave, $usuario->clave)){
         session_start();
         $_SESSION['user'] = $usuario->nombre;
         $_SESSION['userId'] = $usuario->id_usuario;
-        header("Location: " . PRODUCTOS_ADM);
+        header("Location: " .PRODUCTOS_ADM);
       }else{
-          echo var_dump($hash==$usuario->clave)." ".$usuario->clave." ".$hash;
+          echo var_dump($clave==$usuario->clave)." ".$usuario->clave." ".$clave;
         //header("Location: " LOGOUT. );
       }
   }
