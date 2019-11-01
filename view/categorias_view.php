@@ -14,8 +14,7 @@ class CategoriasView {
         $smarty->assign('titulo',"Mostrar Categoria");
         $smarty->assign('BASE_URL',BASE_URL);
         $smarty->assign('lista_productos',$producto);
-        $smarty->display('templates/tabla_categorias.tpl');
-        
+        $smarty->display('templates/categoria_admin.tpl');
     }
     
 }

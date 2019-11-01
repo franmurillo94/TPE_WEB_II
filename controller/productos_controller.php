@@ -42,7 +42,7 @@ class ProductosController {
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){
-        $this->checkLogIn();gffffffffffffigfci
+        $this->checkLogIn();
         $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
         header("Location: " . BASE_URL);
     }

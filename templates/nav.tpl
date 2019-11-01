@@ -12,7 +12,7 @@
         <a class="nav-link" href="{$BASE_URL}">Productos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{$BASE_URL}">Categorias</a>
+        <a class="nav-link" href="{$BASE_URL}categorias">Categorias</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{$BASE_URL}login">Iniciar Sesion</a>
