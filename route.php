@@ -28,8 +28,6 @@ if($action == ''){
 
         if($partesURL[0] == "productos"){
             $productos_controller->GetProductos();
-        }elseif($partesURL[0] == "productosAdm") {
-            $productos_controller->GetProductosAdm();
         }elseif($partesURL[0] == "insertar") {
             $productos_controller->InsertarProducto();
         }elseif($partesURL[0] == "borrar") {
@@ -49,7 +47,14 @@ if($action == ''){
         }
         elseif($partesURL[0] == "categoriasAdm") {
             $categorias_controller->GetCategoriasAdm();
-        }/*
+        }
+        elseif($partesURL[0] == "productosAdm") {
+            $productos_controller->GetProductosAdm();
+        }
+        elseif($partesURL[0] == "logOut") {
+            $login_controller->Logout();
+        }
+        /*
         elseif($partesURL[0] == "editar") {
             $productos_controller->EditarProducto($partesURL[1]);
         }*/

@@ -35,7 +35,6 @@ class CategoriasController {
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarCategoria(){
-
         $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
         header("Location: " . BASE_URL);
     }
