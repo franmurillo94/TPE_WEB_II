@@ -15,6 +15,7 @@
                   <tr>
                     <td>{$categoria->nombre}</td>
                     <td>{$categoria->descripcion}</td>
+                    <td><a href='borrarCategoria/{$categoria->id_categoria}'>Borrar</a></td>
                   </tr>
                   {/foreach}
               </tbody>

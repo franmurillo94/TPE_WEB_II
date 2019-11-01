@@ -45,20 +45,20 @@ class CategoriasController {
     // TRAE EL ARREGLO DE categoria DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetCategoriasAdm(){
         $this->checkLogIn();
-        $categoria = $this->model->Getcategorias();
+        $categoria = $this->model->GetCategorias();
         $this->view->DisplayCategoriaAdm($categoria);
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarCategoria(){
         $this->checkLogIn();
-        $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
-        header("Location: " . BASE_URL);
+        $this->model->InsertarCategoria($_POST['nombre'],$_POST['descripcion']);
+        header("Location: " . CATEGORIAS_ADM);
     }
     // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarCategoria($id){
         $this->checkLogIn();
         $this->model->BorrarCategoria($id);
-        header("Location: " . BASE_URL);
+        header("Location: " . CATEGORIAS_ADM);
     }
 }
 ?>

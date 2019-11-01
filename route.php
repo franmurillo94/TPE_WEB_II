@@ -13,6 +13,7 @@ define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].di
 define("PRODUCTOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
 define("PRODUCTOS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productosAdm');
 define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
+define("CATEGORIAS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categoriaAdm');
 
 
 $productos_controller = new ProductosController();
@@ -34,6 +35,8 @@ if($action == ''){
             $productos_controller->Detalle($partesURL[1]);
         }elseif($partesURL[0] == "borrar") {
             $productos_controller->BorrarProducto($partesURL[1]);
+        }elseif($partesURL[0] == "borrarCategoria") {
+            $categorias_controller->BorrarCategoria($partesURL[1]);
         }elseif($partesURL[0] == "registro") {
             $usuario_controller->DisplayRegistro();
         }elseif($partesURL[0] == "login") {
@@ -57,10 +60,14 @@ if($action == ''){
         elseif($partesURL[0] == "insertarCategoria") {
            $categorias_controller->InsertarCategoria();
         }
-        /*
+        
         elseif($partesURL[0] == "editar") {
             $productos_controller->EditarProducto($partesURL[1]);
-        }*/
+        }
+        elseif($partesURL[0] == "MostrarEditar") {
+            $productos_controller->DisplayEditar($partesURL[1]);
+        }
+        
     }
 }
 

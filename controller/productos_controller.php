@@ -53,18 +53,24 @@ class ProductosController {
     public function InsertarProducto(){
         $this->checkLogIn();
         $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
-        header("Location: " . BASE_URL);
+        header("Location: " . PRODUCTOS_ADM);
     }
     // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarProducto($id){
         $this->checkLogIn();
         $this->model->BorrarProducto($id);
-        header("Location: " . BASE_URL);
+        header("Location: " . PRODUCTOS_ADM);
     }
     // EDITAR UN PRODUCTO DE LA TABLA
     public function EditarProducto($id){
-        $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$id);
-        header("Location: " . BASE_URL);
+        $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
+        header("Location: " . PRODUCTOS_ADM);
+    }
+    // EDITAR UN PRODUCTO DE LA TABLA
+    public function DisplayEditar($id){
+        $categorias = $this->categorias_model->GetCategorias();
+        $productos = $this->model->GetProducto($id);
+        $this->view->DisplayEditar($productos,$categorias);
     }
 }
 

@@ -1,15 +1,11 @@
 <form action="insertarCategoria" method="post">
   <div class="form-group">
-    <label for="nombre">Nombre producto:</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Enter nombre del producto">
+    <label for="nombre">Nombre categoria:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Enter nombre de categoria">
   </div>
   <div class="form-group">
-    <label for="descripcion">Descripcion producto:</label>
-    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Enter descripcion del producto">
-  </div>
-  <div class="form-group">
-    <label for="precio">Precio producto:</label>
-    <input type="number" class="form-control" id="precio" name="precio" placeholder="Enter precio del producto">
+    <label for="descripcion">Descripcion categoria:</label>
+    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Enter descripcion de categoria">
   </div>
   <input type="submit" class="btn btn-primary" value="insertar">
 </form>
