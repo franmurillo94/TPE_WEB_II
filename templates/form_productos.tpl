@@ -13,7 +13,15 @@
   </div>
   <div class="form-group">
     <label for="categoria">Categoria producto:</label>
-    <input type="number" class="form-control" id="categoria" name="categoria" placeholder="Enter categoria del producto">
+    <select id="id_category" name ="categoria" class="browser-default custom-select">
+              {foreach from=$lista_categorias item=categoria}
+                <option value="{$categoria->id_categoria}">{$categoria->nombre}</option>          
+              {/foreach}
+    </select>
   </div>
   <input type="submit" class="btn btn-primary" value="insertar">
 </form>
+
+
+            
+          

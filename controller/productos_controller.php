@@ -3,6 +3,7 @@
 // LINKEAMOS MODEL Y VIEW
 require_once "./model/productos_model.php";
 require_once "./view/productos_view.php";
+require_once "./model/categorias_model.php";
 
 class ProductosController {
 
@@ -13,6 +14,7 @@ class ProductosController {
         // INICIALIZAMOS LAS CLASES MODEL Y VIEW
         $this->model = new ProductosModel();
         $this->view = new ProductosView();
+        $this->categorias_model = new CategoriasModel();
     }
 
     public function checkLogIn(){
@@ -38,8 +40,9 @@ class ProductosController {
     // TRAE EL ARREGLO DE PRODUCTOS DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetProductosAdm(){
         $this->checkLogIn();
+        $categorias = $this->categorias_model->GetCategorias();
         $productos = $this->model->GetProductos();
-        $this->view->DisplayProductoAdm($productos);
+        $this->view->DisplayProductoAdm($productos,$categorias);
     }
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
     public function GetProducto($id){

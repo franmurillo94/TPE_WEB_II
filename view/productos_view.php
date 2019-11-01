@@ -20,11 +20,12 @@ class ProductosView {
 
     
     // FUNCION QUE MUESTRA LOS PRODUCTOS PARA USUARIOS
-    public function DisplayProductoAdm($producto){ 
+    public function DisplayProductoAdm($producto,$categoria){ 
         $smarty = new Smarty();
         $smarty->assign('titulo',"Mostrar Producto");
         $smarty->assign('BASE_URL',BASE_URL);
         $smarty->assign('lista_productos',$producto);
+        $smarty->assign('lista_categorias',$categoria);
         $smarty->display('templates/producto_adm.tpl');
         
     }
