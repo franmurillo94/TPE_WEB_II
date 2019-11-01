@@ -18,6 +18,7 @@ class ProductosView {
         
     }
 
+    
     // FUNCION QUE MUESTRA LOS PRODUCTOS PARA USUARIOS
     public function DisplayProductoAdm($producto){ 
         $smarty = new Smarty();
