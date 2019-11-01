@@ -70,19 +70,19 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `id_ca
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- CREATE TABLE `usuario` (
+--   `id_usuario` int(11) NOT NULL,
+--   `nombre` varchar(50) NOT NULL,
+--   `password` varchar(50) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nombre`, `password`) VALUES
-(1, 'pancho', 'murillo'),
-(2, 'alan', 'diaz');
+-- INSERT INTO `usuario` (`id_usuario`, `nombre`, `password`) VALUES
+-- (1, 'pancho', 'murillo'),
+-- (2, 'alan', 'diaz');
 
 --
 -- Índices para tablas volcadas

@@ -29,8 +29,7 @@ class LoginController{
         $_SESSION['userId'] = $usuario->id_usuario;
         header("Location: " .PRODUCTOS_ADM);
       }else{
-          echo var_dump($clave==$usuario->clave)." ".$usuario->clave." ".$clave;
-        //header("Location: " LOGOUT. );
+        header("Location: " .LOGIN );
       }
   }
   
