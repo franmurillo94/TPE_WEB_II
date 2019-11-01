@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2019 a las 22:39:12
+-- Tiempo de generación: 01-11-2019 a las 17:31:43
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -31,16 +31,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
   `nombre` varchar(20) NOT NULL,
-  `descripcion` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabla contiene las categorias de productos';
+  `descripcion` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
 INSERT INTO `categoria` (`id_categoria`, `nombre`, `descripcion`) VALUES
-(1, 'Cocina', 'Electrodomésticos que se utilizan en el área gastronómica.'),
-(2, 'Limpieza', 'Electrodomesticos del area higiene corporal o material.');
+(1, 'asd', 'asd');
 
 -- --------------------------------------------------------
 
@@ -54,15 +53,15 @@ CREATE TABLE `producto` (
   `descripcion` varchar(100) NOT NULL,
   `precio` double NOT NULL,
   `id_categoria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabla contiene los productos';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `id_categoria`) VALUES
-(9, 'Lavarropas', 'Cansado ya de lavar a mano y tener callos de fregar ropa, YA NO MAS!!', 13400, 2),
-(10, 'Licuadora', 'Llega el verano, el calor, la playa.. no la queres, la NECESITAS!!', 5200, 1);
+(0, 'asd', 'aads', 2, 1),
+(1, 'pepa', 'carton cuadrado', 12, 1);
 
 -- --------------------------------------------------------
 
@@ -70,19 +69,20 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `id_ca
 -- Estructura de tabla para la tabla `usuario`
 --
 
--- CREATE TABLE `usuario` (
---   `id_usuario` int(11) NOT NULL,
---   `nombre` varchar(50) NOT NULL,
---   `password` varchar(50) NOT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `usuario` (
+  `id_usuario` int(25) NOT NULL,
+  `nombre` varchar(230) NOT NULL,
+  `clave` varchar(250) NOT NULL,
+  `admin` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
--- INSERT INTO `usuario` (`id_usuario`, `nombre`, `password`) VALUES
--- (1, 'pancho', 'murillo'),
--- (2, 'alan', 'diaz');
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `admin`) VALUES
+(11, 'asd', '$2y$10$MzEt2F7SaQpYEiAmYAj43eMOy8BzB6OiBMLEoPAIqp35fF0huo7Ju', 0),
+(12, 'qwe', '$2y$10$3LtOeH0io7n/7hyXxTOlPeerq.JnYDsA2F9Makdb5WU.g5kld/.n.', 0);
 
 --
 -- Índices para tablas volcadas
@@ -115,19 +115,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `producto`
---
-ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
