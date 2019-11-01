@@ -19,12 +19,12 @@ class ProductosController {
         session_start();
         
         if(!isset($_SESSION['userId'])){
-            header("Location: " . URL_LOGIN);
+            header("Location: " . LOGIN);
             die();
         }
 
         if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
-            header("Location: " . URL_LOGOUT);
+            header("Location: " . LOGOUT);
             die(); // destruye la sesión, y vuelve al login
         } 
         $_SESSION['LAST_ACTIVITY'] = time();

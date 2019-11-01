@@ -45,17 +45,18 @@ class UsuarioController{
   // INICIA SESION
   public function Login(){
     $clave = $_POST['clave'];
-    $usuario = $this->model->GetUsuario($_POST['usuario']);
-    if (isset($usuario) && password_verify($clave, $usuario->clave)){
-      var_dump(password_verify($clave, $usuario->clave));
+    $hash = password_hash($clave, PASSWORD_DEFAULT);
+    $usuario = $this->model->GetUsuario($_POST['nombre']);
+    if (password_verify($hash, $usuario->clave)){
         session_start();
-        $_SESSION['usuario'] = $usuario->nombre;
-        $_SESSION['id_usuario'] = $usuario->id_usuario;
+        $_SESSION['user'] = $usuario->nombre;
+        $_SESSION['userId'] = $usuario->id_usuario;
         header("Location: " . PRODUCTOS_ADM);
       }else{
-        header("Location: " . BASE_URL);
+        header("Location: " . LOGOUT);
       }
   }
+  
   // LOGOUT
   public function Logout(){
     session_start();

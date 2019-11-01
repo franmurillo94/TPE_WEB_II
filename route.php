@@ -9,7 +9,9 @@ define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]
 define("REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/registro');
 define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("PRODUCTOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
-define("PRODUCTOS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
+define("PRODUCTOS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productosAdm');
+define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
+
 
 $productos_controller = new ProductosController();
 $usuario_controller = new UsuarioController();
@@ -37,6 +39,8 @@ if($action == ''){
             $usuario_controller->InsertarUsuario();
         }elseif($partesURL[0] == "iniciarSesion") {
             $usuario_controller->Login();
+        }elseif($partesURL[0] == "logout") {
+            echo "jajaj";
         }
         /*elseif($partesURL[0] == "editar") {
             $productos_controller->EditarProducto($partesURL[1]);

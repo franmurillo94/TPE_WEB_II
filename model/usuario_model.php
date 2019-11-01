@@ -19,7 +19,7 @@ class UsuarioModel{
   public function GetUsuario($nombre){
     $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE nombre = ?");
     $sentencia->execute(array($nombre));
-    $clave = $sentencia->fetch(PDO::FETCH_OBJ);   
-    return $clave;
+    $usuario = $sentencia->fetch(PDO::FETCH_OBJ);   
+    return $usuario;
   }
 }
