@@ -14,9 +14,20 @@ class ProductosView {
         $smarty->assign('titulo',"Mostrar Producto");
         $smarty->assign('BASE_URL',BASE_URL);
         $smarty->assign('lista_productos',$producto);
-        $smarty->display('templates/tabla_simple.tpl');
+        $smarty->display('templates/producto_simple.tpl');
         
     }
+
+    // FUNCION QUE MUESTRA LOS PRODUCTOS PARA USUARIOS
+    public function DisplayProductoAdm($producto){ 
+        $smarty = new Smarty();
+        $smarty->assign('titulo',"Mostrar Producto");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('lista_productos',$producto);
+        $smarty->display('templates/producto_adm.tpl');
+        
+    }
+
     
 }
 

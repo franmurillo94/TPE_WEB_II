@@ -8,15 +8,23 @@ class CategoriasView {
     function __construct(){
 
     }
-    // FUNCION QUE MUESTRA LOS PRODUCTOS
-    public function DisplayProducto($producto){ 
+    // FUNCION QUE MUESTRA LAS CATEGORIAS 
+    public function DisplayCategoria($categoria){ 
         $smarty = new Smarty();
         $smarty->assign('titulo',"Mostrar Categoria");
         $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_productos',$producto);
-        $smarty->display('templates/tabla_categorias.tpl');
+        $smarty->assign('lista_productos',$categoria);
+        $smarty->display('templates/categoria_simple.tpl');
         
     }
+    // FUNCIOIN QUE MUESTRA LAS CATEGORIAS PARA USUARIOS
+    public function DisplayCategoriaAdm($categoria){ 
+        $smarty = new Smarty();
+        $smarty->assign('titulo',"Mostrar Categoria");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('lista_productos',$categoria);
+        $smarty->display('templates/categoria_adm.tpl');
+        
     
 }
 

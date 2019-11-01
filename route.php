@@ -9,6 +9,7 @@ define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]
 define("REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/registro');
 define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("PRODUCTOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
+define("PRODUCTOS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
 
 $productos_controller = new ProductosController();
 $usuario_controller = new UsuarioController();
@@ -22,6 +23,8 @@ if($action == ''){
 
         if($partesURL[0] == "productos"){
             $productos_controller->GetProductos();
+        }elseif($partesURL[0] == "productosAdm") {
+            $productos_controller->GetProductosAdm();
         }elseif($partesURL[0] == "insertar") {
             $productos_controller->InsertarProducto();
         }elseif($partesURL[0] == "borrar") {

@@ -35,6 +35,12 @@ class ProductosController {
         $productos = $this->model->GetProductos();
         $this->view->DisplayProducto($productos);
     }
+    // TRAE EL ARREGLO DE PRODUCTOS DEL MODEL Y LOS MUESTRA EN EL VIEW
+    public function GetProductosAdm(){
+        $this->checkLogIn();
+        $productos = $this->model->GetProductos();
+        $this->view->DisplayProductoAdm($productos);
+    }
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
     public function GetProducto($id){
         $productos = $this->model->GetProducto();
@@ -42,7 +48,7 @@ class ProductosController {
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){
-        $this->checkLogIn();gffffffffffffigfci
+        $this->checkLogIn();
         $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
         header("Location: " . BASE_URL);
     }

@@ -51,7 +51,7 @@ class UsuarioController{
         session_start();
         $_SESSION['usuario'] = $usuario->nombre;
         $_SESSION['id_usuario'] = $usuario->id_usuario;
-        header("Location: " . BASE_URL);
+        header("Location: " . PRODUCTOS_ADM);
       }else{
         header("Location: " . BASE_URL);
       }
