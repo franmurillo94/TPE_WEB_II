@@ -52,6 +52,9 @@ if($action == ''){
         elseif($partesURL[0] == "logOut") {
             $login_controller->Logout();
         }
+        elseif($partesURL[0] == "insertarCategoria") {
+           $categorias_controller->InsertarCategoria();
+        }
         /*
         elseif($partesURL[0] == "editar") {
             $productos_controller->EditarProducto($partesURL[1]);
