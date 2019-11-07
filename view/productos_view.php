@@ -35,10 +35,10 @@ class ProductosView {
         
     }
     // FUNCION QUE MUESTRA LOS PRODUCTOS
-    public function DisplayEditar($producto,$categoria){ 
+    public function DisplayEditar($producto, $img = ""){ 
         $this->smarty->assign('titulo',"Mostrar Producto");
         $this->smarty->assign('producto',$producto);
-        $this->smarty->assign('lista_categorias',$categoria);
+        $this->smarty->assign('img', $img);
         $this->smarty->display('templates/editar.tpl');
         
     }
