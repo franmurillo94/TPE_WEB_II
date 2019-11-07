@@ -123,9 +123,11 @@ class ProductosController extends Seguridad {
         session_start();                    
         if ($_SESSION['admin'] == 0) {
             session_abort();
+        $categorias = $this->categorias_model->GetCategorias();
         $producto = $this->model->GetProducto($id[0]);
         $img = $this->ImgModel->GetImagenProducto($id[0]);
-        $this->view->DisplayEditar($producto,$img);
+            $usuario = $this->usrModel->GetUsuarioID($_SESSION['id_usuario']);
+        $this->view->DisplayEditar($producto, $categorias, $img, $usuario);
         }
     }
 }

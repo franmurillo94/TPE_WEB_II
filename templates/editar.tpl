@@ -1,5 +1,4 @@
-{include file="top.tpl"}
-{include file="nav.tpl"}
+
 <div class="row d-flex justify-content-center">
       <div class="col-10 col-lg-8">
        <table class="table table-dark">
