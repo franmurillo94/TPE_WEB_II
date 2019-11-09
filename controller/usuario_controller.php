@@ -25,7 +25,7 @@ class UsuarioController{
     $clave = $_POST["clave"];
     $hash = password_hash($clave, PASSWORD_DEFAULT);
     $this->model->InsertarUsuario($nombre, $hash);
-    header("Location: " . LOGIN);
+    $this->view->DisplayMensaje();
   }
 
 }

@@ -17,7 +17,7 @@
       <div class="checkbox mb-3">
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" value="insertarUsuario">REGISTRARME</button>
-
+      <h4>{$mensaje}</h4>
     </form>
         </div>
 

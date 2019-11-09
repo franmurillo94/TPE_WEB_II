@@ -7,8 +7,13 @@ class UsuarioView{
         }
 
         function DisplayRegistro(){
-            $this->smarty->assign('titulo',"Mostrar Producto");
-            $this->smarty->assign('BASE_URL',BASE_URL);                    
+            $this->smarty->assign('titulo',"Mostrar Producto");           
+            $this->smarty->assign('mensaje', '');
+            $this->smarty->display('templates/registro.tpl');  
+        }
+        function DisplayMensaje(){
+            $this->smarty->assign('titulo',"Mostrar Producto"); 
+            $this->smarty->assign('mensaje', 'usuario registrado');     
             $this->smarty->display('templates/registro.tpl');  
         }
 }
