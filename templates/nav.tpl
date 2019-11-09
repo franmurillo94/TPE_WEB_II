@@ -6,16 +6,16 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="{$BASE_URL}productos">Productos</a>
+        <a class="nav-link" href="productos">Productos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{$BASE_URL}categorias">Categorias</a>
+        <a class="nav-link" href="categorias">Categorias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{$BASE_URL}login">Iniciar Sesion</a>
+        <a class="nav-link" href="login">Iniciar Sesion</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{$BASE_URL}registro">Registrarse</a>
+        <a class="nav-link" href="registro">Registrarse</a>
       </li>
     </ul>
   </div>

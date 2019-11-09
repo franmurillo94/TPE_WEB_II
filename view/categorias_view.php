@@ -4,25 +4,21 @@ require_once('libs/Smarty.class.php');
 
 // CLASE PARA LA VIEW DE LA TABLA PRODUCTOS
 class CategoriasView {
-    
+    private $smarty;
     function __construct(){
-
+        $this->smarty = new Smarty();
     }
     // FUNCION QUE MUESTRA LAS CATEGORIAS 
     public function DisplayCategoria($categoria){ 
-        $smarty = new Smarty();
-        $smarty->assign('titulo',"Mostrar Categoria");
-        $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_categoria',$categoria);
-        $smarty->display('templates/categoria_simple.tpl');
+        $this->smarty->assign('titulo',"Mostrar Categoria");
+        $this->smarty->assign('lista_categoria',$categoria);
+        $this->smarty->display('templates/categoria_simple.tpl');
     }
 
     // FUNCIOIN QUE MUESTRA LAS CATEGORIAS PARA USUARIOS
     public function DisplayCategoriaAdm($categoria){ 
-        $smarty = new Smarty();
-        $smarty->assign('titulo',"Mostrar Categoria");
-        $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_categoria',$categoria);
-        $smarty->display('templates/categoria_adm.tpl');
+        $this->smarty->assign('titulo',"Mostrar Categoria");
+        $this->smarty->assign('lista_categoria',$categoria);
+        $this->smarty->display('templates/categoria_adm.tpl');
     }
 }

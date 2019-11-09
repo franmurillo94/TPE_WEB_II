@@ -1,19 +1,13 @@
 <?php
 
+require_once "config/ConfigApp.php";
 require_once "controller/productos_controller.php";
 require_once "controller/usuario_controller.php";
 require_once "controller/login_controller.php";
 require_once "controller/categorias_controller.php";
 
-
 $action = $_GET["action"];
-define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
-define("REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/registro');
-define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
-define("PRODUCTOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
-define("PRODUCTOS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productosAdm');
-define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
-define("CATEGORIAS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categoriaAdm');
+/* 
 
 
 $productos_controller = new ProductosController();
@@ -69,6 +63,37 @@ if($action == ''){
         }
         
     }
+} */
+
+define('ACTION', 0);
+define('PARAMS', 1);
+function parseURL($url)
+{
+  $urlExploded = explode('/', $url);
+  $arrayReturn[ConfigApp::$ACTION] = $urlExploded[0];
+  $arrayReturn[ConfigApp::$PARAMS] = isset($urlExploded[1]) ? array_slice($urlExploded,1) : null;
+  //retortna un arreglo de 2 posiciones [accion][parametros]
+  return $arrayReturn;  
 }
+
+if(isset($_GET['action'])){
+    //parseurl analiza la url seteada
+     $urlData = parseURL($_GET['action']);
+     $action = $urlData[ConfigApp::$ACTION]; //home
+     if(array_key_exists($action,ConfigApp::$ACTIONS)){
+         $params = $urlData[ConfigApp::$PARAMS];
+         $action = explode('#',ConfigApp::$ACTIONS[$action]); 
+         $controller = new $action[0]();
+         $metodo = $action[1];
+         if(isset($params) &&  $params != null){
+             echo $controller->$metodo($params);
+         }
+         else{
+             echo $controller->$metodo();
+         }
+     }else{
+         echo "error 404 pagina no encontrada";
+     }
+ }
 
 ?>

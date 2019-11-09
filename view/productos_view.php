@@ -4,48 +4,40 @@ require_once('libs/Smarty.class.php');
 
 // CLASE PARA LA VIEW DE LA TABLA PRODUCTOS
 class ProductosView {
-    
+    private $smarty;
     function __construct(){
-
+        $this->smarty = new Smarty();
     }
     // FUNCION QUE MUESTRA LOS PRODUCTOS
     public function DisplayProducto($producto){ 
-        $smarty = new Smarty();
-        $smarty->assign('titulo',"Mostrar Producto");
-        $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_productos',$producto);
-        $smarty->display('templates/producto_simple.tpl');
+        $this->smarty->assign('titulo',"Mostrar Producto");
+        $this->smarty->assign('lista_productos',$producto);
+        $this->smarty->display('templates/producto_simple.tpl');
         
     }
 
     
     // FUNCION QUE MUESTRA LOS PRODUCTOS PARA USUARIOS
     public function DisplayProductoAdm($producto,$categoria){ 
-        $smarty = new Smarty();
-        $smarty->assign('titulo',"Mostrar Producto");
-        $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_productos',$producto);
-        $smarty->assign('lista_categorias',$categoria);
-        $smarty->display('templates/producto_adm.tpl');
+        $this->smarty->assign('titulo',"Mostrar Producto");
+        $this->smarty->assign('lista_productos',$producto);
+        $this->smarty->assign('lista_categorias',$categoria);
+        $this->smarty->display('templates/producto_adm.tpl');
         
     }
     // FUNCION QUE MUESTRA LOS PRODUCTOS
     public function DisplayDetalle($producto){ 
-        $smarty = new Smarty();
-        $smarty->assign('titulo',"Mostrar Producto");
-        $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_productos',$producto);
-        $smarty->display('templates/detalle.tpl');
+        $this->smarty->assign('titulo',"Mostrar Producto");
+        $this->smarty->assign('lista_productos',$producto);
+        $this->smarty->display('templates/detalle.tpl');
         
     }
     // FUNCION QUE MUESTRA LOS PRODUCTOS
     public function DisplayEditar($producto,$categoria){ 
-        $smarty = new Smarty();
-        $smarty->assign('titulo',"Mostrar Producto");
-        $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_productos',$producto);
-        $smarty->assign('lista_categorias',$categoria);
-        $smarty->display('templates/editar.tpl');
+        $this->smarty->assign('titulo',"Mostrar Producto");
+        $this->smarty->assign('lista_productos',$producto);
+        $this->smarty->assign('lista_categorias',$categoria);
+        $this->smarty->display('templates/editar.tpl');
         
     }
 
