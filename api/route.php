@@ -1,7 +1,6 @@
 <?php
 require_once "config/configApi.php";
-require_once "controller/comentariosController.php";
-require_once "controller/comentariosSecuredController.php";
+require_once "controller/ComentariosApiController.php";
 function parseURL($url)
 {
   $urlExploded = explode('/', $url);
