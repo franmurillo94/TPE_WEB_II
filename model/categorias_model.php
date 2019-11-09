@@ -3,6 +3,7 @@
 class CategoriasModel {
 
     private $db;
+
 // linkear nuestra base de datos
     function __construct(){
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
@@ -29,7 +30,7 @@ class CategoriasModel {
 
     public function BorrarCategoria($id){
         $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id_categoria=?");
-        $sentencia->execute(array($id));
+        $sentencia->execute(array($id[0]));
     }
     /*
     public function EditarProducto($nombre,$descripcion,$precio,$id){

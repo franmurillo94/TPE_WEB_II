@@ -22,12 +22,12 @@ class CategoriasController {
         session_start();
         
         if(!isset($_SESSION['userId'])){
-            header("Location: " . LOGIN);
+            header(LOGIN);
             die();
         }
 
         if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
-            header("Location: " . LOGOUT);
+            header(LOGOUT);
             die(); // destruye la sesión, y vuelve al login
         } 
         $_SESSION['LAST_ACTIVITY'] = time();
@@ -38,27 +38,27 @@ class CategoriasController {
         $this->view->DisplayCategoria($categoria);
     }
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
-    public function GetCategoria($id){
-        $categoria = $this->model->GetCategoria($id);
+    public function GetCategoria($params){
+        $categoria = $this->model->GetCategoria($params);
         $this->view->DisplayCategoria($categoria);
     }
     // TRAE EL ARREGLO DE categoria DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetCategoriasAdm(){
-        $this->checkLogIn();
+       // $this->checkLogIn();
         $categoria = $this->model->GetCategorias();
         $this->view->DisplayCategoriaAdm($categoria);
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarCategoria(){
-        $this->checkLogIn();
+       // $this->checkLogIn();
         $this->model->InsertarCategoria($_POST['nombre'],$_POST['descripcion']);
-        header("Location: " . CATEGORIAS_ADM);
+        header(CATEGORIAS_ADM);
     }
     // BORRAR UN PRODUCTO DE LA TABLA
-    public function BorrarCategoria($id){
-        $this->checkLogIn();
-        $this->model->BorrarCategoria($id);
-        header("Location: " . CATEGORIAS_ADM);
+    public function BorrarCategoria($params){
+       // $this->checkLogIn();
+        $this->model->BorrarCategoria($params[0]);
+        header(CATEGORIAS_ADM);
     }
 }
 ?>

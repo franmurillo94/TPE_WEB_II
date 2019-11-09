@@ -8,7 +8,7 @@ class LoginView{
   public function DisplayLogin(){
     $this->smarty->assign('titulo',"Login");
     $this->smarty->display('templates/login.tpl');
-}
+  }
 }
 
  ?>

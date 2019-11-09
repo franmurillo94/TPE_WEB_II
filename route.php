@@ -8,9 +8,8 @@ require_once "controller/categorias_controller.php";
 
 $action = $_GET["action"];
 
+$controller_ = new LoginController();
 
-define('ACTION', 0);
-define('PARAMS', 1);
 function parseURL($url)
 {
   $urlExploded = explode('/', $url);

@@ -1,41 +1,40 @@
 <?php
 
 
-define("REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/registro');
-define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
-define("PRODUCTOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
-define("PRODUCTOS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productosAdm');
-define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
-define("CATEGORIAS_ADM", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categoriaAdm');
+define("REGISTRO", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/registro');
+define("LOGIN", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/login');
+define("PRODUCTOS", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/productos');
+define("PRODUCTOS_ADM", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/productosAdm');
+define("LOGOUT", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/logout');
+define("CATEGORIAS_ADM", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/categoriaAdm');
  
 class ConfigApp
 {
     public static $ACTION = 'action';
     public static $PARAMS = 'params';
     public static $ACTIONS = [
-      //productos
+      #productos
       ''=> 'ProductosController#GetProductos',
       'productos' =>  'ProductosController#GetProductos',
-      'insertar'=>'ProductosController#InsertarProducto',
+      'categorias'=>'CategoriasController#GetCategorias',
+      'productosAdm'=>'ProductosController#GetProductosAdm',
+     /*  'insertar'=>'ProductosController#InsertarProducto',
       'detalle'=>'ProductosController#Detalle',
       'borrar'=>'ProductosController#BorrarProducto',
-      'productosAdm'=>'ProductosController#GetProductosAdm',
       'editar'=>'ProductosController#EditarProducto',
-      //categorias
-      'borrarCategoria'=>'CategoriasController#BorrarCategoria',
-      'categorias'=>'CategoriasController#GetCategorias',
-      'categoriaAdm'=>'CategoriasController#GetCategoriasAdm',
-      'insertarCategoria'=>'CategoriasController#InsertarCategoria',
-      'registro'=>'UsuarioController#DisplayRegistro',
+      #categorias
       'MostrarEditar'=>'ProductosController#DisplayEditar',
-      //login
-      'login'=>'LoginController#DisplayLogin',
-      'iniciarSesion'=>'LoginController#Login',
+      #login
       'logOut'=>'LoginController#Logout',
-      //usuario
+      #usuario*/
+      'borrarCategoria'=>'CategoriasController#BorrarCategoria',
+      'insertarCategoria'=>'CategoriasController#InsertarCategoria',
+      'categoriaAdm'=>'CategoriasController#GetCategoriasAdm',
+      'iniciarSesion'=>'LoginController#Login',
+      'insertarUsuario'=>'UsuarioController#InsertarUsuario', 
+      'login'=>'LoginController#DisplayLogin',
+      
       'registro'=>'UsuarioController#DisplayRegistro',
-      'insertarUsuario'=>'UsuarioController#InsertarUsuario',
-
      
       
 

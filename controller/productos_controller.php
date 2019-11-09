@@ -19,14 +19,12 @@ class ProductosController {
 
     public function checkLogIn(){
         session_start();
-        
         if(!isset($_SESSION['userId'])){
-            header("Location: " . LOGIN);
+            header(LOGIN);
             die();
         }
-
         if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
-            header("Location: " . LOGOUT);
+            header(LOGOUT);
             die(); // destruye la sesión, y vuelve al login
         } 
         $_SESSION['LAST_ACTIVITY'] = time();
@@ -39,7 +37,7 @@ class ProductosController {
     }
     // TRAE EL ARREGLO DE PRODUCTOS DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetProductosAdm(){
-        $this->checkLogIn();
+        //$this->checkLogIn();
         $categorias = $this->categorias_model->GetCategorias();
         $productos = $this->model->GetProductos();
         $this->view->DisplayProductoAdm($productos,$categorias);
@@ -51,20 +49,20 @@ class ProductosController {
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){
-        $this->checkLogIn();
+        //$this->checkLogIn();
         $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
-        header("Location: " . PRODUCTOS_ADM);
+        header(PRODUCTOS_ADM);
     }
     // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarProducto($id){
-        $this->checkLogIn();
+        //$this->checkLogIn();
         $this->model->BorrarProducto($id);
-        header("Location: " . PRODUCTOS_ADM);
+        header(PRODUCTOS_ADM);
     }
     // EDITAR UN PRODUCTO DE LA TABLA
     public function EditarProducto($id){
         $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
-        header("Location: " . PRODUCTOS_ADM);
+        header(PRODUCTOS_ADM);
     }
     // EDITAR UN PRODUCTO DE LA TABLA
     public function DisplayEditar($id){

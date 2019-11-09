@@ -18,7 +18,7 @@ class ProductosView {
 
     
     // FUNCION QUE MUESTRA LOS PRODUCTOS PARA USUARIOS
-    public function DisplayProductoAdm($producto,$categoria){ 
+    public function DisplayProductoAdm($producto,$categoria){
         $this->smarty->assign('titulo',"Mostrar Producto");
         $this->smarty->assign('lista_productos',$producto);
         $this->smarty->assign('lista_categorias',$categoria);

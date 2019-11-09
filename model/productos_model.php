@@ -11,17 +11,13 @@ class ProductosModel {
     public function GetProducto($id){
         $sentencia = $this->db->prepare( "SELECT * FROM producto WHERE id_producto=?");
         $sentencia->execute(array($id));
-        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        
-        return $productos;
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
     // DEVUELVE TODOS LOS PRODUCTOS DE LA BD
     public function GetProductos(){
         $sentencia = $this->db->prepare( "select * from producto");
         $sentencia->execute();
-        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        
-        return $productos;
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
     // INSERTA UN PRODUCTO NUEVO EN LA BD
     public function InsertarProducto($nombre,$descripcion,$precio,$categoria){
