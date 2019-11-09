@@ -27,9 +27,9 @@ class LoginController{
         session_start();
         $_SESSION['user'] = $usuario->nombre;
         $_SESSION['userId'] = $usuario->id_usuario;
-        header("Location: " .PRODUCTOS_ADM);
+        header(PRODUCTOS_ADM);
       }else{
-        header("Location: " .LOGIN );
+        header(PRODUCTOS_ADM);
       }
   }
   
@@ -37,6 +37,6 @@ class LoginController{
   public function Logout(){
     session_start();
     session_destroy();
-    header("Location: " . LOGIN);
+    header( LOGIN);
   }
 }
