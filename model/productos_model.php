@@ -15,7 +15,7 @@ class ProductosModel {
     }
     // DEVUELVE TODOS LOS PRODUCTOS DE LA BD
     public function GetProductos(){
-        $sentencia = $this->db->prepare( "select * from producto");
+        $sentencia = $this->db->prepare( "SELECT * from producto");
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }

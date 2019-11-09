@@ -18,7 +18,7 @@ class ConfigApp
       'productos' =>  'ProductosController#GetProductos',
       'categorias'=>'CategoriasController#GetCategorias',
       'productosAdm'=>'ProductosController#GetProductosAdm',
-     /*  'insertar'=>'ProductosController#InsertarProducto',
+      'insertar'=>'ProductosController#InsertarProducto',
       'detalle'=>'ProductosController#Detalle',
       'borrar'=>'ProductosController#BorrarProducto',
       'editar'=>'ProductosController#EditarProducto',
@@ -26,7 +26,9 @@ class ConfigApp
       'MostrarEditar'=>'ProductosController#DisplayEditar',
       #login
       'logOut'=>'LoginController#Logout',
-      #usuario*/
+      #usuario
+      /*  
+      */
       'borrarCategoria'=>'CategoriasController#BorrarCategoria',
       'insertarCategoria'=>'CategoriasController#InsertarCategoria',
       'categoriaAdm'=>'CategoriasController#GetCategoriasAdm',
