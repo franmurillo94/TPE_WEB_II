@@ -4,7 +4,7 @@ require_once "./view/categorias_view.php";
 //require_once "ProductsController.php";
 //require_once "UserController.php";
 
-class CategoriasController {
+class CategoriasController  extends Seguridad  {
 
     private $model;
     private $view;

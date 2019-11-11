@@ -5,7 +5,7 @@ require_once "./model/productos_model.php";
 require_once "./view/productos_view.php";
 require_once "./model/categorias_model.php";
 
-class ProductosController {
+class ProductosController extends Seguridad {
 
     private $model;
     private $view;
@@ -17,18 +17,7 @@ class ProductosController {
         $this->categorias_model = new CategoriasModel();
     }
 
-    public function checkLogIn(){
-        session_start();
-        if(!isset($_SESSION['userId'])){
-            header(LOGIN);
-            die();
-        }
-        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
-            header(LOGOUT);
-            die(); // destruye la sesión, y vuelve al login
-        } 
-        $_SESSION['LAST_ACTIVITY'] = time();
-    }
+  
 
     // TRAE EL ARREGLO DE PRODUCTOS DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetProductos(){
