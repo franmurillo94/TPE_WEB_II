@@ -4,6 +4,7 @@
 require_once "./model/productos_model.php";
 require_once "./view/productos_view.php";
 require_once "./model/categorias_model.php";
+require_once "Seguridad.php";
 
 class ProductosController extends Seguridad {
 

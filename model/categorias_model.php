@@ -20,7 +20,6 @@ class CategoriasModel {
         $sentencia = $this->db->prepare( "SELECT * FROM categoria");
         $sentencia->execute();
         $categoria = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        
         return $categoria;
     }
     public function InsertarCategoria($nombre,$descripcion){
