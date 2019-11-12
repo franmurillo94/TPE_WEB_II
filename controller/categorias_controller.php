@@ -33,7 +33,8 @@ class CategoriasController  extends Seguridad  {
     // TRAE EL ARREGLO DE categoria DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetCategoriasAdm(){
         session_start();
-        if ($_SESSION['admin'] == 0) {
+        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
+            session_abort();
             $categoria = $this->model->GetCategorias();
             $this->view->DisplayCategoriaAdm($categoria);
         }else{
