@@ -1,41 +1,29 @@
 <?php
 require_once "./model/categorias_model.php";
 require_once "./view/categorias_view.php";
-//require_once "ProductsController.php";
-//require_once "UserController.php";
+require_once "Seguridad.php";
 
 class CategoriasController  extends Seguridad  {
 
     private $model;
     private $view;
-    //private $controller;
-    //private $controlleruser;
 
 	function __construct(){
         
         $this->model = new CategoriasModel();
-        $this->view = new CategoriasView();
-        //$this->controller = new ProductsController();
-        //$this->controlleruser = new UserController();   
-    }
-    public function checkLogIn(){
-        session_start();
-        
-        if(!isset($_SESSION['userId'])){
-            header(LOGIN);
-            die();
-        }
-
-        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
-            header(LOGOUT);
-            die(); // destruye la sesión, y vuelve al login
-        } 
-        $_SESSION['LAST_ACTIVITY'] = time();
+        $this->view = new CategoriasView();  
     }
     // TRAE EL ARREGLO DE categoria DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetCategorias(){
-        $categoria = $this->model->Getcategorias();
-        $this->view->DisplayCategoria($categoria);
+        session_start();
+        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
+            session_abort();
+            $this->GetCategoriasAdm();
+        }else{
+            $categoria = $this->model->Getcategorias();
+            $this->view->DisplayCategoria($categoria);
+        }
+
     }
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
     public function GetCategoria($params){
@@ -44,21 +32,32 @@ class CategoriasController  extends Seguridad  {
     }
     // TRAE EL ARREGLO DE categoria DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetCategoriasAdm(){
-       // $this->checkLogIn();
-        $categoria = $this->model->GetCategorias();
-        $this->view->DisplayCategoriaAdm($categoria);
+        session_start();
+        if ($_SESSION['admin'] == 0) {
+            $categoria = $this->model->GetCategorias();
+            $this->view->DisplayCategoriaAdm($categoria);
+        }else{
+            header(CATEGORIAS);
+        }
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarCategoria(){
-       // $this->checkLogIn();
-        $this->model->InsertarCategoria($_POST['nombre'],$_POST['descripcion']);
-        header(CATEGORIAS_ADM);
+        if ($_SESSION['admin'] == 0) {
+            $this->model->InsertarCategoria($_POST['nombre'],$_POST['descripcion']);
+            header(CATEGORIAS_ADM);
+        }else{
+            $this->GetCategorias();
+        }
     }
     // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarCategoria($params){
-       // $this->checkLogIn();
-        $this->model->BorrarCategoria($params[0]);
-        header(CATEGORIAS_ADM);
+        if ($_SESSION['admin'] == 0) {
+            $this->model->BorrarCategoria($params[0]);
+            header(CATEGORIAS_ADM);
+        }else{
+            $this->GetCategorias();
+        }
+        
     }
 }
 ?>

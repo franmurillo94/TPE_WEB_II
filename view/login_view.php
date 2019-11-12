@@ -5,8 +5,9 @@ class LoginView{
     $this->smarty = new Smarty();
   }
   
-  public function DisplayLogin(){
+  public function DisplayLogin( $estado = ""){
     $this->smarty->assign('titulo',"Login");
+    $this->smarty->assign('estado',$estado);
     $this->smarty->display('templates/login.tpl');
   }
 }

@@ -21,16 +21,22 @@ class LoginController{
 
   // LOGIN 
   public function Login(){
+    $nombre = $_POST['nombre'];
     $clave = $_POST['clave'];
-    $usuario = $this->model->GetUsuario($_POST['nombre']);
-    if (password_verify($clave, $usuario->clave)){
-        session_start();
-        $_SESSION['user'] = $usuario->nombre;
-        $_SESSION['userId'] = $usuario->id_usuario;
-        header(PRODUCTOS_ADM);
-      }else{
-        header(LOGIN);
-      }
+    $dbUser = $this->model->GetUsuario($nombre);
+    if (!empty($dbUser)){
+      if (password_verify($clave, $dbUser->clave)){
+          session_start();
+          $_SESSION['user'] =  $dbUser->nombre;
+          $_SESSION['userId'] =  $dbUser->id_usuario;
+          $_SESSION['admin'] = $dbUser->admin;
+          header(PRODUCTOS_ADM);
+        }else{
+          $this->view->DisplayLogin("Clave incorrecta");
+        }
+    }else{
+      $this->view->DisplayLogin("No existe el usuario");
+    }
   }
   
   // LOGOUT

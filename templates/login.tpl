@@ -16,6 +16,7 @@
                     <p></p>
                     <button class="btn btn-lg btn-primary btn-block"  value="Login">INICIAR SESION</button>
                 </form>
+                <h4 class="h3 mb-3 font-weight-normal">{{$estado}}</h4>
         </div>
 
    </div>
