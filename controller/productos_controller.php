@@ -70,8 +70,13 @@ class ProductosController extends Seguridad {
         session_start();
         if ($_SESSION['admin'] == 0) {
             session_abort();
-            $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
-            header(PRODUCTOS_ADM);
+            if (isset($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'])){
+
+                $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'], );
+                header(PRODUCTOS_ADM);
+            }else{
+                echo "ta todo mal";
+            }
         }
     }
     // EDITAR UN PRODUCTO DE LA TABLA
