@@ -43,7 +43,9 @@ class CategoriasController  extends Seguridad  {
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarCategoria(){
+        session_start();
         if ($_SESSION['admin'] == 0) {
+            session_abort();
             $this->model->InsertarCategoria($_POST['nombre'],$_POST['descripcion']);
             header(CATEGORIAS_ADM);
         }else{
@@ -52,7 +54,9 @@ class CategoriasController  extends Seguridad  {
     }
     // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarCategoria($params){
+        session_start();
         if ($_SESSION['admin'] == 0) {
+            session_abort();
             $this->model->BorrarCategoria($params[0]);
             header(CATEGORIAS_ADM);
         }else{

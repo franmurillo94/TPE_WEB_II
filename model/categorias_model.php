@@ -29,7 +29,12 @@ class CategoriasModel {
 
     public function BorrarCategoria($id){
         $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id_categoria=?");
-        $sentencia->execute(array($id[0]));
+        $ok = $sentencia->execute(array($id));
+        if(!$ok)
+        {
+            var_dump($sentencia->errorInfo());
+            die;
+        }
     }
     /*
     public function EditarProducto($nombre,$descripcion,$precio,$id){

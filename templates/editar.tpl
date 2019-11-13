@@ -15,7 +15,7 @@
     <input type="number" class="form-control" id="precio" name="precio" placeholder="Enter precio del producto">
   </div>
   <div class="form-group">
-    <label for="categoria">Categoria producto:</label>
+    <label for="categoria">Categoria producto:</label>  
     <select id="id_category" name ="categoria" class="browser-default custom-select">
               {foreach from=$lista_categorias item=categoria}
                 <option value="{$categoria->id_categoria}">{$categoria->nombre}</option>          

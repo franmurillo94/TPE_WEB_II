@@ -69,6 +69,7 @@ class ProductosController extends Seguridad {
     public function EditarProducto(){
         session_start();
         if ($_SESSION['admin'] == 0) {
+            session_abort();
             $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
             header(PRODUCTOS_ADM);
         }
