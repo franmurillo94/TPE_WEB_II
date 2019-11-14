@@ -20,6 +20,7 @@
     </select>
   </div>
   <input type="submit" class="btn btn-primary" value="insertar">
+  <input type="file" class="btn btn-primary" name="imagenes">
 </form>
 
 

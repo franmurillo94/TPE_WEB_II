@@ -4,6 +4,7 @@
 require_once "./model/productos_model.php";
 require_once "./view/productos_view.php";
 require_once "./model/categorias_model.php";
+require_once "./model/img_model.php";
 require_once "Seguridad.php";
 
 class ProductosController extends Seguridad {
@@ -15,6 +16,7 @@ class ProductosController extends Seguridad {
         $this->model = new ProductosModel();
         $this->view = new ProductosView();
         $this->categorias_model = new CategoriasModel();
+        $this->ImgModel = new ImgModel();
     }
 
   
@@ -66,11 +68,13 @@ class ProductosController extends Seguridad {
               array_push($arrayImagenes, $this->ImagenModel->subirImagen($_FILES["imagenes"]["tmp_name"][$i]));
              }
           }
-          $numeroCerveza = $this->CervezasModel->lastInsertId();
+          $numeroCerveza = $this->model->lastInsertId();
           $cantidad = count($arrayImagenes);
           for ($i=0; $i < $cantidad ; $i++) {
-            $this->ImagenModel->AgregarImagen($arrayImagenes[$i], $numeroCerveza['id_cerveza']);
+            $this->ImgModel->AgregarImagen($arrayImagenes[$i], $numeroCerveza['id_cerveza']);
           }
+        }else{
+            echo "la put";
         }
     
     }
