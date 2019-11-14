@@ -35,7 +35,7 @@ class ProductosView {
     // FUNCION QUE MUESTRA LOS PRODUCTOS
     public function DisplayEditar($producto,$categoria){ 
         $this->smarty->assign('titulo',"Mostrar Producto");
-        $this->smarty->assign('lista_productos',$producto);
+        $this->smarty->assign('producto',$producto);
         $this->smarty->assign('lista_categorias',$categoria);
         $this->smarty->display('templates/editar.tpl');
         
