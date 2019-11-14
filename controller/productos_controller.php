@@ -68,11 +68,12 @@ class ProductosController extends Seguridad {
     // EDITAR UN PRODUCTO DE LA TABLA
     public function EditarProducto($id){
         session_start();
+        echo "ta todo mal";
         if ($_SESSION['admin'] == 0) {
             session_abort();
-             $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$id[0]);
-                header(PRODUCTOS_ADM) ;
-            
+            $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['caetgoria'], $id[0]);
+            //header(PRODUCTOS_ADM) ;
+            echo "ta todo mal";
         }else{
             echo "ta todo mal";
         }

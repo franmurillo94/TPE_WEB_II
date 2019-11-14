@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2019 a las 17:31:43
--- Versión del servidor: 10.1.40-MariaDB
--- Versión de PHP: 7.3.5
+-- Tiempo de generación: 14-11-2019 a las 20:47:25
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,7 +39,23 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id_categoria`, `nombre`, `descripcion`) VALUES
-(1, 'asd', 'asd');
+(1, 'Living', 'La vida loca'),
+(5, 'Cocina', 'todo para el cociner'),
+(6, 'Comedor', 'si comes'),
+(9, 'Higiene', 'Todo tipo de product'),
+(10, 'Habitaciones', 'no se');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagen`
+--
+
+CREATE TABLE `imagen` (
+  `id_img` int(11) NOT NULL,
+  `src` varchar(100) NOT NULL,
+  `id_producto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -60,8 +76,8 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `id_categoria`) VALUES
-(0, 'asd', 'aads', 2, 1),
-(1, 'pepa', 'carton cuadrado', 12, 1);
+(0, 'asdasd', 'asdasd', 12, 1),
+(2, 'some', 'some', 123, 1);
 
 -- --------------------------------------------------------
 
@@ -81,8 +97,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `admin`) VALUES
-(11, 'asd', '$2y$10$MzEt2F7SaQpYEiAmYAj43eMOy8BzB6OiBMLEoPAIqp35fF0huo7Ju', 0),
-(12, 'qwe', '$2y$10$3LtOeH0io7n/7hyXxTOlPeerq.JnYDsA2F9Makdb5WU.g5kld/.n.', 0);
+(24, 'Alan', '$2y$10$f0PCbMOfuJP2pfAdA/N89eEL99raA9dQq8mfRHhGVbSmUvgLx1qui', 0);
 
 --
 -- Índices para tablas volcadas
@@ -93,6 +108,13 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `admin`) VALUES
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  ADD PRIMARY KEY (`id_img`) USING BTREE,
+  ADD KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `producto`
@@ -115,13 +137,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_usuario` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restricciones para tablas volcadas
