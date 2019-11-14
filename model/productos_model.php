@@ -10,8 +10,8 @@ class ProductosModel {
     // DEVUELVE UN PRODUCTO(ID) DE LA BD
     public function GetProducto($id){
         $sentencia = $this->db->prepare( "SELECT * FROM producto WHERE id_producto=?");
-        $sentencia->execute(array($id[0]));
-        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        $sentencia->execute(array($id));
+        return $sentencia->fetch(PDO::FETCH_OBJ);
     }
     // DEVUELVE TODOS LOS PRODUCTOS DE LA BD
     public function GetProductos(){

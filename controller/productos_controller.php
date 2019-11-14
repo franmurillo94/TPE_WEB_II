@@ -98,11 +98,11 @@ class ProductosController extends Seguridad {
     }
     // MUESTRA EL FORM PARA EDITAR EL PRODUCTO
     public function DisplayEditar($id){
-        session_start();
+        session_start();                    
         if ($_SESSION['admin'] == 0) {
             session_abort();
         $categorias = $this->categorias_model->GetCategorias();
-        $producto = $this->model->GetProducto($id);
+        $producto = $this->model->GetProducto($id[0]);
         $this->view->DisplayEditar($producto,$categorias);
         }
     }
