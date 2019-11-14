@@ -28,8 +28,6 @@ class ConfigApp
       #login
       'logOut'=>'LoginController#Logout',
       #usuario
-      /*  
-      */
       'borrarCategoria'=>'CategoriasController#BorrarCategoria',
       'insertarCategoria'=>'CategoriasController#InsertarCategoria',
       'categoriaAdm'=>'CategoriasController#GetCategoriasAdm',

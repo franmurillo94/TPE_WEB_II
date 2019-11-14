@@ -37,7 +37,7 @@ class ProductosModel {
     }
     
     public function EditarProducto($nombre,$descripcion,$precio,$id){
-        $sentencia = $this->db->prepare("UPDATE producto SET nombre = $nombre, descripcion = $descripcion, precio = $precio WHERE id_producto=?");
+        $sentencia = $this->db->prepare("UPDATE producto SET nombre = $nombre, descripcion = $descripcion, precio = $precio WHERE id_producto=$id");
         $ok = $sentencia->execute(array($nombre,$descripcion,$precio,$id));
         if(!$ok)
         {

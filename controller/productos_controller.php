@@ -66,23 +66,22 @@ class ProductosController extends Seguridad {
         }
     }
     // EDITAR UN PRODUCTO DE LA TABLA
-    public function EditarProducto(){
+    public function EditarProducto($id){
         session_start();
         if ($_SESSION['admin'] == 0) {
             session_abort();
-            if (isset($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'])){
-
-                $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'], );
-                header(PRODUCTOS_ADM);
-            }else{
-                echo "ta todo mal";
-            }
+             $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$id[0]);
+                header(PRODUCTOS_ADM) ;
+            
+        }else{
+            echo "ta todo mal";
         }
     }
     // EDITAR UN PRODUCTO DE LA TABLA
     public function DisplayEditar($id){
         session_start();
         if ($_SESSION['admin'] == 0) {
+            session_abort();
             $categorias = $this->categorias_model->GetCategorias();
             $productos = $this->model->GetProducto($id);
             $this->view->DisplayEditar($productos,$categorias);
