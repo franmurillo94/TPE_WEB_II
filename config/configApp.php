@@ -17,25 +17,25 @@ class ConfigApp
       #productos
       ''=> 'ProductosController#GetProductos',
       'productos' =>  'ProductosController#GetProductos',
-      'categorias'=>'CategoriasController#GetCategorias',
       'productosAdm'=>'ProductosController#GetProductosAdm',
       'insertar'=>'ProductosController#InsertarProducto',
       'detalle'=>'ProductosController#Detalle',
       'borrar'=>'ProductosController#BorrarProducto',
+      'MostrarEditar'=>'ProductosController#DisplayEditar',
       'editar'=>'ProductosController#EditarProducto',
       #categorias
-      'MostrarEditar'=>'ProductosController#DisplayEditar',
+      'categorias'=>'CategoriasController#GetCategorias',
+      'insertarCategoria'=>'CategoriasController#InsertarCategoria',
+      'borrarCategoria'=>'CategoriasController#BorrarCategoria',
+      'categoriaAdm'=>'CategoriasController#GetCategoriasAdm',
       #login
       'logOut'=>'LoginController#Logout',
-      #usuario
-      'borrarCategoria'=>'CategoriasController#BorrarCategoria',
-      'insertarCategoria'=>'CategoriasController#InsertarCategoria',
-      'categoriaAdm'=>'CategoriasController#GetCategoriasAdm',
       'iniciarSesion'=>'LoginController#Login',
-      'insertarUsuario'=>'UsuarioController#InsertarUsuario', 
       'login'=>'LoginController#DisplayLogin',
-      
+      #usuario
+      'insertarUsuario'=>'UsuarioController#InsertarUsuario', 
       'registro'=>'UsuarioController#DisplayRegistro',
+      
      
       
 

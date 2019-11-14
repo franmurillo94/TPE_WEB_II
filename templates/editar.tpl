@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <label for="categoria">Categoria producto:</label>  
-    <select id="id_category" name ="categoria" class="browser-default custom-select">
+    <select id="id_categoria" name ="categoria" class="browser-default custom-select">
               {foreach from=$lista_categorias item=categoria}
                 <option value="{$categoria->id_categoria}">{$categoria->nombre}</option>          
               {/foreach}
