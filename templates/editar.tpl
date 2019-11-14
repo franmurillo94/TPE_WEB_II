@@ -1,7 +1,7 @@
 {include file="top.tpl"}
 {include file="nav_adm.tpl"}
 
-<form action="editar/0" method="post">
+<form action="editar/{$lista_productos->id_producto}" method="post">
   <div class="form-group">
     <label for="nombre">Nombre producto:</label>
     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Enter nombre del producto">
