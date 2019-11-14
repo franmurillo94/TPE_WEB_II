@@ -53,6 +53,7 @@ class ProductosController extends Seguridad {
     public function InsertarProducto(){
         session_start();
         if ($_SESSION['admin'] == 0) {
+            session_abort();
             $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
             header(PRODUCTOS_ADM);
         }
@@ -61,7 +62,7 @@ class ProductosController extends Seguridad {
     public function BorrarProducto($id){
         session_start();
         if ($_SESSION['admin'] == 0) {
-            $this->model->BorrarProducto($id);
+            $this->model->BorrarProducto($id[0]);
             header(PRODUCTOS_ADM);
         }
     }
