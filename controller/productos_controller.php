@@ -78,6 +78,7 @@ class ProductosController extends Seguridad {
     public function BorrarProducto($id){
         session_start();
         if ($_SESSION['admin'] == 0) {
+            session_abort();
             $this->model->BorrarProducto($id[0]);
             header(PRODUCTOS_ADM);
         }
@@ -87,23 +88,23 @@ class ProductosController extends Seguridad {
         session_start();
         if ($_SESSION['admin'] == 0) {
             session_abort();
-            $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'], $id[0]);
-            header(PRODUCTOS_ADM) ;
-        }else{
-            echo "ta todo mal";
+        $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'],$id[0]);
+        header(PRODUCTOS_ADM);
         }
     }
-    // EDITAR UN PRODUCTO DE LA TABLA
+    // MUESTRA EL FORM PARA EDITAR EL PRODUCTO
     public function DisplayEditar($id){
         session_start();
         if ($_SESSION['admin'] == 0) {
             session_abort();
-            $categorias = $this->categorias_model->GetCategorias();
-            $productos = $this->model->GetProducto($id[0]);
-            $this->view->DisplayEditar($productos,$categorias);
+        $categorias = $this->categorias_model->GetCategorias();
+        $producto = $this->model->GetProducto($id);
+        $this->view->DisplayEditar($producto,$categorias);
         }
     }
 }
 
-
+// PARA DEBUGEAR
+// print_r($id);                      imprime la variable
+//die;                                corta
 ?>
