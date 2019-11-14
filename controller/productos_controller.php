@@ -57,6 +57,22 @@ class ProductosController extends Seguridad {
             $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
             header(PRODUCTOS_ADM);
         }
+        $arrayImagenes = array();
+        if (isset($_FILES['imagenes'])){
+          $cantidad= count($_FILES["imagenes"]["tmp_name"]);
+          for ($i=0; $i<$cantidad; $i++){
+             //Comprobamos si el fichero es una imagen
+            if ($_FILES['imagenes']['type'][$i]=='image/png' || $_FILES['imagenes']['type'][$i]=='image/jpeg'){
+              array_push($arrayImagenes, $this->ImagenModel->subirImagen($_FILES["imagenes"]["tmp_name"][$i]));
+             }
+          }
+          $numeroCerveza = $this->CervezasModel->lastInsertId();
+          $cantidad = count($arrayImagenes);
+          for ($i=0; $i < $cantidad ; $i++) {
+            $this->ImagenModel->AgregarImagen($arrayImagenes[$i], $numeroCerveza['id_cerveza']);
+          }
+        }
+    
     }
     // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarProducto($id){

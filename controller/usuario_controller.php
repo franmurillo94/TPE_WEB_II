@@ -12,7 +12,7 @@ class UsuarioController{
     $this->model = new UsuarioModel();
   }
   
-                                                    // FUNCIONES DE REGISTRO
+                                                   // FUNCIONES DE REGISTRO
   
   // MUESTRA LA PAGINA DE REGISTRO
   function DisplayRegistro(){
@@ -27,5 +27,6 @@ class UsuarioController{
     $this->model->InsertarUsuario($nombre, $hash);
     $this->view->DisplayMensaje();
   }
+
 
 }
