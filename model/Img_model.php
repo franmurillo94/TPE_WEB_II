@@ -6,10 +6,10 @@ class ImgModel
   {
     $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
   }
-function GetImagenproducto($id_producto){
+function GetImagenProducto($id_producto){
       $sentencia = $this->db->prepare( "SELECT * FROM imagen WHERE id_producto = ?");
-      $sentencia->execute(array($id_producto[0]));
-      return $sentencia->fetchAll(PDO::FETCH_OBJ);
+       $sentencia->execute(array($id_producto));
+        return $sentencia->fetch(PDO::FETCH_OBJ);
   }
   function GetImagenes(){
       $sentencia = $this->db->prepare( "SELECT * FROM imagen");
@@ -21,8 +21,8 @@ function GetImagenproducto($id_producto){
     $sentencia->execute(array($path,$id_producto));
   }
   function BorrarImagen($id_imagen){
-    $sentencia = $this->db->prepare( "DELETE FROM imagen WHERE id_imagen = ?");
-    $sentencia->execute(array($id_imagen[0]));
+    $sentencia = $this->db->prepare( "DELETE FROM imagen WHERE id_img = ?");
+    $sentencia->execute(array($id_imagen));
   }
     
 }

@@ -81,6 +81,8 @@ class ProductosController extends Seguridad {
         if ($_SESSION['admin'] == 0) {
             session_abort();
             $this->model->BorrarProducto($id[0]);
+            $id_imagen = $this->ImgModel-> GetImagenProducto($id[0]);
+            $this->ImgModel->BorrarImagen($id_imagen->id_img);
             header(PRODUCTOS_ADM);
         }
     }
