@@ -40,7 +40,11 @@ class ProductosModel {
         $sentencia = $this->db->prepare("UPDATE producto SET nombre =?, descripcion = ?, precio = ?, id_categoria = ? WHERE id_producto=?");
         $sentencia->execute(array($nombre,$descripcion,$precio,$categoria,$id));
     }
-    
+    function lastInsertId(){
+        $sentencia = $this->db->prepare("SELECT id_producto FROM producto ORDER BY id_producto  DESC LIMIT 1");
+        $sentencia->execute();
+        return $sentencia->fetch(PDO::FETCH_OBJ);
+      }
 
 }
 

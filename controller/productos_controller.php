@@ -56,27 +56,24 @@ class ProductosController extends Seguridad {
         session_start();
         if ($_SESSION['admin'] == 0) {
             session_abort();
-            $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
+            if (($_POST['nombre'] != '') && ($_POST['descripcion']!= '') && ($_POST['precio']!= '') && ($_POST['categoria']!= '')){
+                $this->model->InsertarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
+                if ($_FILES['imagenes']['name'] != ''){
+                    $origen = $_FILES['imagenes']['tmp_name'];
+                    $nProd = $this->model->lastInsertId();
+                    $destino = $this->DestinoImagen($_FILES['imagenes']['name']);
+                    copy($origen, $destino);
+                    $this->ImgModel->AgregarImagen($destino, $nProd->id_producto);
+                }
+            }
             header(PRODUCTOS_ADM);
         }
-        $arrayImagenes = array();
-        if (isset($_FILES['imagenes'])){
-          $cantidad= count($_FILES["imagenes"]["tmp_name"]);
-          for ($i=0; $i<$cantidad; $i++){
-             //Comprobamos si el fichero es una imagen
-            if ($_FILES['imagenes']['type'][$i]=='image/png' || $_FILES['imagenes']['type'][$i]=='image/jpeg'){
-              array_push($arrayImagenes, $this->ImagenModel->subirImagen($_FILES["imagenes"]["tmp_name"][$i]));
-             }
-          }
-          $numeroCerveza = $this->model->lastInsertId();
-          $cantidad = count($arrayImagenes);
-          for ($i=0; $i < $cantidad ; $i++) {
-            $this->ImgModel->AgregarImagen($arrayImagenes[$i], $numeroCerveza['id_cerveza']);
-          }
-        }else{
-            echo "la put";
-        }
-    
+        
+    }
+    function DestinoImagen($imagen){
+        $destino_final = 'images/' . uniqid() . '.jpg';
+        move_uploaded_file($imagen, $destino_final);
+        return $destino_final;
     }
     // BORRAR UN PRODUCTO DE LA TABLA
     public function BorrarProducto($id){
@@ -108,7 +105,4 @@ class ProductosController extends Seguridad {
     }
 }
 
-// PARA DEBUGEAR
-// print_r($id);                      imprime la variable
-//die;                                corta
 ?>

@@ -24,10 +24,6 @@ function GetImagenproducto($id_producto){
     $sentencia = $this->db->prepare( "DELETE FROM imagen WHERE id_imagen = ?");
     $sentencia->execute(array($id_imagen[0]));
   }
-    function subirImagen($imagen){
-      $destino_final = 'images/' . uniqid() . '.jpg';
-      move_uploaded_file($imagen, $destino_final);
-      return $destino_final;
-  }
+    
 }
  ?>

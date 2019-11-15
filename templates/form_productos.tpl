@@ -1,4 +1,4 @@
-<form action="insertar" method="post">
+<form action="insertar" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="nombre">Nombre producto:</label>
     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Enter nombre del producto">
@@ -19,9 +19,13 @@
               {/foreach}
     </select>
   </div>
+  <p></p>
+  <div class="custom-file">
+  <input type="file" class="custom-file-input" id="imagenes" name="imagenes" >
+  <label class="custom-file-label" for="customFileLang"  name="imagenes"  >Seleccionar Archivo</label>
+</div>
   <input type="submit" class="btn btn-primary" value="insertar">
-  <input type="file" class="btn btn-primary" name="imagenes">
-</form>
+</form><p></p>
 
 
             
