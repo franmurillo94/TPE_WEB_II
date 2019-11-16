@@ -10,6 +10,7 @@ class LoginController{
   function __construct(){
     $this->view = new LoginView();
     $this->model = new UsuarioModel();
+    
   }
                                                 // FUNCIONES DE LOGIN
 
@@ -37,6 +38,34 @@ class LoginController{
     }else{
       $this->view->DisplayLogin("No existe el usuario");
     }
+  }
+  
+  public function CambiarClave(){
+    $nombre = $_POST['nombre'];
+    $clave = $_POST['clave'];
+    $clave2 = $_POST['clave2'];
+    if (isset($_POST['nombre'])  && $_POST['nombre'] != ''){
+      $dbUser = $this->model->GetUsuario($nombre);
+      if (!empty($dbUser)){
+        if (isset($_POST['clave'],$_POST['clave2']) && $_POST['clave'] != ''&& $_POST['clave2'] != '' ) {
+          if ($clave == $clave2){
+            $hash = password_hash($clave, PASSWORD_DEFAULT);
+            $this->model->EditarUsuario($nombre,$hash,1);
+            header(PRODUCTOS);
+          }else{
+            $this->view->DisplayCambioClave("Las contraseñas no coinciden");
+          }
+        }else{
+          $this->view->DisplayCambioClave("Completar todos los campos");
+        }
+      }
+    }else{
+      $this->view->DisplayCambioClave("Completar todos los campos");
+    }
+  }
+
+  public function DisplayCambioClave(){
+    $this->view->DisplayCambioClave();
   }
   
   // LOGOUT

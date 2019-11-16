@@ -13,7 +13,7 @@ class CategoriasView {
         $this->smarty->assign('titulo',"Mostrar Categoria");
         $this->smarty->assign('lista_categoria',$categoria);
         $this->smarty->assign('error',$error);
-        $this->smarty->display('templates/categoria_simple.tpl');
+        $this->smarty->display('templates/categoria/categoria_simple.tpl');
     }
 
     // FUNCIOIN QUE MUESTRA LAS CATEGORIAS PARA USUARIOS
@@ -21,6 +21,6 @@ class CategoriasView {
         $this->smarty->assign('titulo',"Mostrar Categoria");
         $this->smarty->assign('lista_categoria',$categoria);
         $this->smarty->assign('error',$error);
-        $this->smarty->display('templates/categoria_adm.tpl');
+        $this->smarty->display('templates/categoria/categoria_adm.tpl');
     }
 }

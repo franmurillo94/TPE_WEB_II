@@ -34,7 +34,7 @@ class UsuarioController extends Seguridad{
         $usuarios = $this->model->GetUsuarios();
         $this->view->DisplayUsuarios($usuarios);
     }else{
-        header(login);
+        header(LOGIN);
         
     }
    

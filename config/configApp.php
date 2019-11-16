@@ -28,6 +28,8 @@ class ConfigApp
       #login
       'logOut'=>'LoginController#Logout',
       'iniciarSesion'=>'LoginController#Login',
+      'cambiarcontraseña'=>'LoginController#DisplayCambioClave',
+      'cambiarclave'=>'LoginController#CambiarClave',
       'login'=>'LoginController#DisplayLogin',
       #usuario
       'insertarUsuario'=>'UsuarioController#InsertarUsuario', 
