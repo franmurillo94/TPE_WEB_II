@@ -36,6 +36,7 @@ class ConfigApp
       'usuarios'=>'UsuarioController#GetUsuarios', 
       'tugglepermiso'=>'UsuarioController#TogglePermiso', 
       'registro'=>'UsuarioController#DisplayRegistro',
+      'borrarusuario'=>'UsuarioController#BorrarUsuario',
       
      
       

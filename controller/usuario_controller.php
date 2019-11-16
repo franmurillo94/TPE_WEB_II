@@ -53,8 +53,15 @@ class UsuarioController extends Seguridad{
     }else{
       header(PRODUCTOS);
     }
-
   }
+  public function BorrarUsuario($id){
+    session_start();
+    if ($_SESSION['admin'] == 0) {
+        session_abort();
+        $this->model->BorrarUsuario($id[0]);
+        header(USUARIOS);
+    }
+}
 
 
 }
