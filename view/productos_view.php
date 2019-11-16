@@ -9,19 +9,21 @@ class ProductosView {
         $this->smarty = new Smarty();
     }
     // FUNCION QUE MUESTRA LOS PRODUCTOS
-    public function DisplayProducto($producto){ 
+    public function DisplayProducto($producto, $img = []){ 
         $this->smarty->assign('titulo',"Mostrar Producto");
         $this->smarty->assign('lista_productos',$producto);
+        $this->smarty->assign('img',$img);
         $this->smarty->display('templates/producto_simple.tpl');
         
     }
 
     
     // FUNCION QUE MUESTRA LOS PRODUCTOS PARA USUARIOS
-    public function DisplayProductoAdm($producto,$categoria){
+    public function DisplayProductoAdm($producto,$categoria, $img= []){
         $this->smarty->assign('titulo',"Mostrar Producto");
         $this->smarty->assign('lista_productos',$producto);
         $this->smarty->assign('lista_categorias',$categoria);
+        $this->smarty->assign('lista_img',$img);
         $this->smarty->display('templates/producto_adm.tpl');
         
     }

@@ -25,14 +25,14 @@ class ProductosController extends Seguridad {
     public function GetProductos(){
         session_start();
         $img = $this->ImgModel->GetImagenes();
+        $productos = $this->model->GetProductos();
         if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
             session_abort();
             $categorias = $this->categorias_model->GetCategorias();
-            $productos = $this->model->GetProductos();
-            $this->view->DisplayProductoAdm($productos,$categorias);
+            $this->view->DisplayProductoAdm($productos,$categorias, $img);
         }else{
-            $productos = $this->model->GetProductos();
-            $this->view->DisplayProducto($productos);
+            $this->view->DisplayProducto($productos, $img);
+            
         }
     }
 

@@ -21,6 +21,13 @@
                     <td>{$producto->id_categoria}</td>
                     <td><a href='borrar/{$producto->id_producto}'>Borrar</a></td>
                     <td><a href='MostrarEditar/{$producto->id_producto}'>Editar</a></td>
+                    {foreach from=$lista_img item=img}
+                    <td>
+                      {if $img->id_producto eq $producto->id_producto}
+                      <img src='{$img->src}'  height="150px" width="150px">
+                      {/if}
+                    </td>
+                    {/foreach}
                   </tr>
                   {/foreach}
               </tbody>
