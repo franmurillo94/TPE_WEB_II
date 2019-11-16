@@ -1,5 +1,5 @@
-{include file="../top.tpl"}
-{include file="../nav_adm.tpl"}
+{include file="top.tpl"}
+{include file="nav_adm.tpl"}
 
 <form action="editar/{$producto->id_producto}" method="post">
   <div class="form-group">
@@ -25,4 +25,4 @@
   <input type="submit" class="btn btn-primary" value="editar">
 </form>
 
-{include file="../footer.tpl"}
+{include file="footer.tpl"}

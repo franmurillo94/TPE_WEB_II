@@ -44,23 +44,23 @@ class LoginController{
     $nombre = $_POST['nombre'];
     $clave = $_POST['clave'];
     $clave2 = $_POST['clave2'];
-    if (isset($_POST['nombre'])  && $_POST['nombre'] != ''){
+    if ($_POST['nombre'] != '' && $_POST['clave'] != '' && $_POST['clave2'] != '' ){
       $dbUser = $this->model->GetUsuario($nombre);
       if (!empty($dbUser)){
-        if (isset($_POST['clave'],$_POST['clave2']) && $_POST['clave'] != ''&& $_POST['clave2'] != '' ) {
           if ($clave == $clave2){
             $hash = password_hash($clave, PASSWORD_DEFAULT);
-            $this->model->EditarUsuario($nombre,$hash,1);
-            header(PRODUCTOS);
+            if ($dbUser->admin == 0) {
+              $this->model->EditarUsuario($nombre,$hash,0,  $dbUser->id_usuario);
+            }else {
+              $this->model->EditarUsuario($nombre,$hash,1,  $dbUser->id_usuario);
+            }
+            $this->view->DisplayLogin("Clave cambiada con exito, loguearse");
           }else{
             $this->view->DisplayCambioClave("Las contraseñas no coinciden");
           }
-        }else{
-          $this->view->DisplayCambioClave("Completar todos los campos");
-        }
+      }else{
+        $this->view->DisplayCambioClave("No se encontro el usuario");
       }
-    }else{
-      $this->view->DisplayCambioClave("Completar todos los campos");
     }
   }
 

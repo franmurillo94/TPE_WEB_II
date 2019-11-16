@@ -31,9 +31,9 @@ class UsuarioModel{
     $sentencia = $this->db->prepare("DELETE FROM Usuario WHERE id_Usuario=?");
     $sentencia->execute(array($id));
   }
-  public function EditarUsuario($nombre,$clave,$admin){
+  public function EditarUsuario($nombre,$clave,$admin, $id){
     $sentencia = $this->db->prepare("UPDATE Usuario SET nombre =?, clave = ?, admin = ? WHERE id_Usuario=?");
-    $sentencia->execute(array($nombre,$clave,$admin));
+    $sentencia->execute(array($nombre,$clave,$admin, $id));
   }
   function TogglePermiso($permiso, $id){
     $sentencia = $this->db->prepare("UPDATE Usuario SET admin = ? WHERE id_Usuario=?");

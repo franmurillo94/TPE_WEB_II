@@ -1,5 +1,5 @@
-{include file="../top.tpl"}
-{include file="../nav_adm.tpl"}
+{include file="top.tpl"}
+{include file="nav_adm.tpl"}
 
 <div class="container-fluid">
   <div class="row d-flex justify-content-center">
@@ -32,7 +32,7 @@
                   {/foreach}
               </tbody>
             </table>
-            {include file="../form_productos.tpl"}
+            {include file="form_productos.tpl"}
 
       </div>
 
@@ -42,4 +42,4 @@
 
 
 
-{include file="../footer.tpl"}
+{include file="footer.tpl"}
