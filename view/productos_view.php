@@ -27,9 +27,10 @@ class ProductosView {
         
     }
     // FUNCION QUE MUESTRA LOS PRODUCTOS
-    public function DisplayDetalle($producto){ 
+    public function DisplayDetalle($producto, $img){ 
         $this->smarty->assign('titulo',"Mostrar Producto");
-        $this->smarty->assign('lista_productos',$producto);
+        $this->smarty->assign('producto',$producto);
+        $this->smarty->assign('img', $img);
         $this->smarty->display('templates/detalle.tpl');
         
     }

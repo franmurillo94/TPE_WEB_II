@@ -11,16 +11,17 @@
             <th scope="col">Producto</th>
             <th scope="col">Descripcion</th>
             <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
           </tr>
         </thead>
         <tbody>
-          {foreach from=$lista_productos item=producto}
             <tr>
               <td>{$producto->nombre}</td>
               <td>{$producto->descripcion}</td>
-              <td>{$producto->precio}</td>
+              <td>{$producto->precio}</td> 
+              <td><img src='{$img->src}'  height="150px" width="150px">
+              </td>
             </tr>
-            {/foreach}
         </tbody>
       </table>
 

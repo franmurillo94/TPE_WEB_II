@@ -40,8 +40,9 @@ class ProductosController extends Seguridad {
 
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
     public function Detalle($id){
-        $productos = $this->model->GetProducto($id);
-        $this->view->DisplayDetalle($productos);
+        $img = $this->ImgModel->GetImagenProducto($id[0]);
+        $productos = $this->model->GetProducto($id[0]);
+        $this->view->DisplayDetalle($productos, $img);
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){
