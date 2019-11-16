@@ -20,6 +20,7 @@
                   {/foreach}
               </tbody>
             </table>
+            <h4>{$error}</h4 style="color=red;">
             {include file="form_categoria_adm.tpl"}
         </div>
 

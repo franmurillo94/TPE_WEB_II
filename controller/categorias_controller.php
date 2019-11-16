@@ -18,28 +18,19 @@ class CategoriasController  extends Seguridad  {
         session_start();
         if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
             session_abort();
-            $this->GetCategoriasAdm();
+            $categoria = $this->model->GetCategorias();
+            $this->view->DisplayCategoriaAdm($categoria);
         }else{
             $categoria = $this->model->Getcategorias();
             $this->view->DisplayCategoria($categoria);
         }
 
     }
+    
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
     public function GetCategoria($params){
         $categoria = $this->model->GetCategoria($params);
         $this->view->DisplayCategoria($categoria);
-    }
-    // TRAE EL ARREGLO DE categoria DEL MODEL Y LOS MUESTRA EN EL VIEW
-    public function GetCategoriasAdm(){
-        session_start();
-        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
-            session_abort();
-            $categoria = $this->model->GetCategorias();
-            $this->view->DisplayCategoriaAdm($categoria);
-        }else{
-            header(CATEGORIAS);
-        }
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarCategoria(){
@@ -47,7 +38,7 @@ class CategoriasController  extends Seguridad  {
         if ($_SESSION['admin'] == 0) {
             session_abort();
             $this->model->InsertarCategoria($_POST['nombre'],$_POST['descripcion']);
-            header(CATEGORIAS_ADM);
+            header(CATEGORIAS);
         }else{
             $this->GetCategorias();
         }
@@ -57,8 +48,12 @@ class CategoriasController  extends Seguridad  {
         session_start();
         if ($_SESSION['admin'] == 0) {
             session_abort();
-            $this->model->BorrarCategoria($params[0]);
-            header(CATEGORIAS_ADM);
+            $error = $this->model->BorrarCategoria($params[0]);
+            $categoria = $this->model->GetCategorias();
+            if ($error != '') {
+                $error = 'No se puede borrar esa categoria';
+            }
+            $this->view->DisplayCategoriaAdm($categoria, $error);
         }else{
             $this->GetCategorias();
         }

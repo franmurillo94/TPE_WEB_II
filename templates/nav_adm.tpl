@@ -6,10 +6,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="productosAdm">Productos</a>
+        <a class="nav-link" href="productos">Productos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="categoriaAdm">Categorias</a>
+        <a class="nav-link" href="categorias">Categorias</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="logOut">LogOut</a>

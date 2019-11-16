@@ -32,8 +32,7 @@ class CategoriasModel {
         $ok = $sentencia->execute(array($id));
         if(!$ok)
         {
-            var_dump($sentencia->errorInfo());
-            die;
+            return $sentencia->errorInfo();
         }
     }
     /*

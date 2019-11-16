@@ -30,7 +30,7 @@ class LoginController{
           $_SESSION['user'] =  $dbUser->nombre;
           $_SESSION['userId'] =  $dbUser->id_usuario;
           $_SESSION['admin'] = $dbUser->admin;
-          header(PRODUCTOS_ADM);
+          header(PRODUCTOS);
         }else{
           $this->view->DisplayLogin("Clave incorrecta");
         }

@@ -24,27 +24,19 @@ class ProductosController extends Seguridad {
     // TRAE EL ARREGLO DE PRODUCTOS DEL MODEL Y LOS MUESTRA EN EL VIEW
     public function GetProductos(){
         session_start();
-        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
-            session_abort();
-            $this->GetProductosAdm();
-        }else{
-            $productos = $this->model->GetProductos();
-            $this->view->DisplayProducto($productos);
-        }
-    }
-
-    // TRAE EL ARREGLO DE PRODUCTOS DEL MODEL Y LOS MUESTRA EN EL VIEW
-    public function GetProductosAdm(){
-        session_start();
+        $img = $this->ImgModel->GetImagenes();
         if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
             session_abort();
             $categorias = $this->categorias_model->GetCategorias();
             $productos = $this->model->GetProductos();
             $this->view->DisplayProductoAdm($productos,$categorias);
         }else{
-            header(LOGIN);
+            $productos = $this->model->GetProductos();
+            $this->view->DisplayProducto($productos);
         }
     }
+
+   
 
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
     public function Detalle($id){
@@ -66,7 +58,7 @@ class ProductosController extends Seguridad {
                     $this->ImgModel->AgregarImagen($destino, $nProd->id_producto);
                 }
             }
-            header(PRODUCTOS_ADM);
+            header(PRODUCTOS);
         }
         
     }
@@ -83,7 +75,7 @@ class ProductosController extends Seguridad {
             $this->model->BorrarProducto($id[0]);
             $id_imagen = $this->ImgModel-> GetImagenProducto($id[0]);
             $this->ImgModel->BorrarImagen($id_imagen->id_img);
-            header(PRODUCTOS_ADM);
+            header(PRODUCTOS);
         }
     }
     // EDITAR UN PRODUCTO DE LA TABLA
@@ -92,7 +84,7 @@ class ProductosController extends Seguridad {
         if ($_SESSION['admin'] == 0) {
             session_abort();
         $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'],$id[0]);
-        header(PRODUCTOS_ADM);
+        header(PRODUCTOS);
         }
     }
     // MUESTRA EL FORM PARA EDITAR EL PRODUCTO
