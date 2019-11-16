@@ -14,7 +14,6 @@ class ProductosView {
         $this->smarty->assign('lista_productos',$producto);
         $this->smarty->assign('img',$img);
         $this->smarty->display('templates/producto_simple.tpl');
-        
     }
 
     

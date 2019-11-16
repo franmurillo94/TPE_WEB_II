@@ -16,4 +16,11 @@ class UsuarioView{
             $this->smarty->assign('mensaje', 'usuario registrado');     
             $this->smarty->display('templates/registro.tpl');  
         }
+        public function DisplayUsuarios($usuario, $error = ''){
+            $this->smarty->assign('titulo',"Mostrar Usuarios");
+            $this->smarty->assign('lista_usuario',$usuario);
+            $this->smarty->assign('error',$error);
+            $this->smarty->display('templates/lista_usuarios.tpl');
+            
+        }
 }

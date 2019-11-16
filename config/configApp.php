@@ -6,6 +6,7 @@ define("LOGIN", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["
 define("PRODUCTOS", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/productos');
 define("LOGOUT", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/logout');
 define("CATEGORIAS", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/categorias');
+define("USUARIOS", 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/usuarios');
  
 class ConfigApp
 {
@@ -30,6 +31,8 @@ class ConfigApp
       'login'=>'LoginController#DisplayLogin',
       #usuario
       'insertarUsuario'=>'UsuarioController#InsertarUsuario', 
+      'usuarios'=>'UsuarioController#GetUsuarios', 
+      'tugglepermiso'=>'UsuarioController#TogglePermiso', 
       'registro'=>'UsuarioController#DisplayRegistro',
       
      

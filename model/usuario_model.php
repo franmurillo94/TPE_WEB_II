@@ -11,9 +11,9 @@ class UsuarioModel{
   }
 
   // INSERTAR UN USUARIO A LA BD
-  function InsertarUsuario($nombre,$clave){
-    $sentencia = $this->db->prepare("INSERT INTO usuario(nombre,clave) VALUES(?,?)");
-    $sentencia->execute(array($nombre,$clave));
+  function InsertarUsuario($nombre,$clave, $admin){
+    $sentencia = $this->db->prepare("INSERT INTO usuario(nombre,clave, admin) VALUES(?,?,?)");
+    $sentencia->execute(array($nombre,$clave, $admin));
   }
   // DEVUELVE USUARIO DE LA BD
   public function GetUsuario($nombre){
@@ -21,5 +21,22 @@ class UsuarioModel{
     $sentencia->execute(array($nombre));
     $usuario = $sentencia->fetch(PDO::FETCH_OBJ);   
     return $usuario;
+  }
+  public function GetUsuarios(){
+    $sentencia = $this->db->prepare( "SELECT * from usuario");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_OBJ);
+  }
+  public function BorrarUsuario($id){
+    $sentencia = $this->db->prepare("DELETE FROM Usuario WHERE id_Usuario=?");
+    $sentencia->execute(array($id));
+  }
+  public function EditarUsuario($nombre,$clave,$admin){
+    $sentencia = $this->db->prepare("UPDATE Usuario SET nombre =?, clave = ?, admin = ? WHERE id_Usuario=?");
+    $sentencia->execute(array($nombre,$clave,$admin));
+  }
+  function TogglePermiso($permiso, $id){
+    $sentencia = $this->db->prepare("UPDATE Usuario SET admin = ? WHERE id_Usuario=?");
+    $sentencia->execute(array($permiso,$id));
   }
 }
