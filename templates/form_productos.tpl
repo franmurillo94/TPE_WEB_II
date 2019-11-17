@@ -23,7 +23,7 @@
   <div class="custom-file">
   <input type="file" class="custom-file-input" id="imagenes" name="imagenes" >
   <label class="custom-file-label" for="customFileLang"  name="imagenes"  >Seleccionar Archivo</label>
-</div>
+  </div>
   <input type="submit" class="btn btn-primary" value="insertar">
 </form><p></p>
 

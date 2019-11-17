@@ -25,6 +25,7 @@
                     <td>
                       {if $img->id_producto eq $producto->id_producto}
                       <img src='{$img->src}'  height="150px" width="150px">
+                      <a href='borrarimagen/{$img->id_img}'>Borrar</a>
                       {/if}
                     </td>
                     {/foreach}

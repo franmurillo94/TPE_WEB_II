@@ -21,6 +21,7 @@ class ConfigApp
       'borrar'=>'ProductosController#BorrarProducto',
       'MostrarEditar'=>'ProductosController#DisplayEditar',
       'editar'=>'ProductosController#EditarProducto',
+      'borrarimagen'=>'ProductosController#BorrarImagen',
       #categorias
       'categorias'=>'CategoriasController#GetCategorias',
       'insertarCategoria'=>'CategoriasController#InsertarCategoria',
@@ -37,7 +38,6 @@ class ConfigApp
       'tugglepermiso'=>'UsuarioController#TogglePermiso', 
       'registro'=>'UsuarioController#DisplayRegistro',
       'borrarusuario'=>'UsuarioController#BorrarUsuario',
-      
      
       
 

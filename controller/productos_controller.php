@@ -79,14 +79,31 @@ class ProductosController extends Seguridad {
             header(PRODUCTOS);
         }
     }
+     // BORRAR UN PRODUCTO DE LA TABLA
+     public function BorrarImagen($id){
+        session_start();
+        if ($_SESSION['admin'] == 0) {
+            session_abort();
+            $this->ImgModel->BorrarImagen($id[0]);
+            header(PRODUCTOS);
+        }
+    }
     // EDITAR UN PRODUCTO DE LA TABLA
     public function EditarProducto($id){
         session_start();
         if ($_SESSION['admin'] == 0) {
             session_abort();
-        $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'],$id[0]);
-        header(PRODUCTOS);
+            if (($_POST['nombre'] != '') && ($_POST['descripcion']!= '') && ($_POST['precio']!= '') && ($_POST['categoria']!= '')) {
+                $this->model->EditarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'],$id[0]);
+            }
+            if ($_FILES['imagenes']['name'] != ''){
+                $origen = $_FILES['imagenes']['tmp_name'];
+                $destino = $this->DestinoImagen($_FILES['imagenes']['name']);
+                copy($origen, $destino);
+                $this->ImgModel->AgregarImagen($destino, $id[0]);
+            }
         }
+        header(PRODUCTOS);
     }
     // MUESTRA EL FORM PARA EDITAR EL PRODUCTO
     public function DisplayEditar($id){
