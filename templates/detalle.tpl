@@ -4,8 +4,8 @@
 <div class="container-fluid">
 
  <div class="row d-flex justify-content-center">
-      <div class="col-10 col-lg-8">
-       <table class="table table-dark">
+    <div class="col-10 col-lg-8">
+      <table class="table table-dark">
         <thead>
           <tr>
             <th scope="col">Producto</th>
@@ -24,11 +24,33 @@
             </tr>
         </tbody>
       </table>
-
-      </div>
-
-
+    
+    </div>
   </div>
+ 
+ <div class="row d-flex justify-content-center">
+
+ <div class="col-6 align-self-center">
+<form class="form-signin text-center">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Puntaje</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Comentario</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+
+</div>
+</div>
+
 </div>
 
 {include file="footer.tpl"}
