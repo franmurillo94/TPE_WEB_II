@@ -1,4 +1,4 @@
-<div class="row line footer" id="app">
+<div class="row line footer" >
     <div class="col-12 col-lg-4 d-flex justify-content-center">
         <div class="col-8 d-flex justify-content-around icon">
             <img class="img-fluid" width="40px" src="./images/Facebook_white.png" alt="" draggable="true">
@@ -18,6 +18,7 @@
         <p>Copyright Electro-House © 2019 All right reserved</p>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="./js/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

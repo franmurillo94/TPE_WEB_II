@@ -8,6 +8,7 @@
     <title>::Electro House:: - {$titulo}</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/estilos2.css">
+    
 </head>
 <body>
 <div class="text-center header">
