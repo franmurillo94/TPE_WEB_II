@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2019 a las 20:47:25
+-- Tiempo de generación: 18-11-2019 a las 12:14:44
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.1.33
 
@@ -57,6 +57,14 @@ CREATE TABLE `imagen` (
   `id_producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `imagen`
+--
+
+INSERT INTO `imagen` (`id_img`, `src`, `id_producto`) VALUES
+(3, 'images/5dd273f5b2719.jpg', 5),
+(4, 'images/5dd274ce89903.jpg', 6);
+
 -- --------------------------------------------------------
 
 --
@@ -76,8 +84,8 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `id_categoria`) VALUES
-(0, 'asdasd', 'asdasd', 12, 1),
-(2, 'some', 'some', 123, 1);
+(5, 'Cocina', 'Todo tipo de productos relacionados', 12, 5),
+(6, 'asd', 'asd', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -97,7 +105,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `admin`) VALUES
-(24, 'Alan', '$2y$10$f0PCbMOfuJP2pfAdA/N89eEL99raA9dQq8mfRHhGVbSmUvgLx1qui', 0);
+(24, 'Alan', '$2y$10$tAxaKiEM./m0x68OAY/U8OlbI/bN34uhrYVvkdC2.DLmHPzO0ZeWu', 0),
+(33, 'usuarioSimple', '$2y$10$Z1kWOFLoIiAt4lDSRowVaeDaaeHR5bxNkbVWnmjklMjcp9aL4D/pS', 1),
+(34, 'otroUsrSimple', '$2y$10$zsThc3rQBaKbXHKf0O8IaOCo3LLdt0u.FW6nffK.XC8bs/DzxBq3K', 1);
 
 --
 -- Índices para tablas volcadas
@@ -143,13 +153,19 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_usuario` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restricciones para tablas volcadas

@@ -6,4 +6,23 @@
 
 
 </body>
+<div class="row line footer">
+    <div class="col-12 col-lg-4 d-flex justify-content-center">
+        <div class="col-8 d-flex justify-content-around icon">
+            <img class="img-fluid" width="40px" src="./images/Facebook_white.png" alt="" draggable="true">
+            <img class="img-fluid" width="40px" src="./images/Instagram_white.png" alt="">
+            <img class="img-fluid" width="40px" src="./images/Twitter_white.png" alt="">
+        </div>
+    </div>
+    <div class="col-12 col-lg-4 d-flex justify-content-center align-self-center">
+        <a href="">Terminos y condiciones </a>
+        <p class="p"> | </p>
+        <a href="">Privacidad </a>
+        <p class="p"> | </p>
+        <a href="">Ayuda</a>
+    </div>
+    <div class="col-12 col-lg-4 d-flex justify-content-center align-self-center">
+        <p>Copyright Electro-House © 2019 All right reserved</p>
+    </div>
+</div>
 </html>

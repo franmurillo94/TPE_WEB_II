@@ -10,6 +10,10 @@
                   <th scope="col">Producto</th>
                   <th scope="col">Descripcion</th>
                   <th scope="col">Precio</th>
+                  <th scope="col">Categoria</th>
+                  <th scope="col">Editar</th>
+                  <th scope="col">Borrar</th>
+                  <th scope="col">Imagen</th>
                 </tr>
               </thead>
               <tbody>
@@ -18,7 +22,13 @@
                     <td>{$producto->nombre}</td>
                     <td>{$producto->descripcion}</td>
                     <td>{$producto->precio}</td>
-                    <td>{$producto->id_categoria}</td>
+                    <td>
+                    {foreach from=$lista_categorias item=categoria}
+                      {if $categoria->id_categoria eq $producto->id_categoria}
+                        {$categoria->nombre}
+                      {/if}
+                    {/foreach}
+                    </td>
                     <td><a href='borrar/{$producto->id_producto}'>Borrar</a></td>
                     <td><a href='MostrarEditar/{$producto->id_producto}'>Editar</a></td>
                     <td>
