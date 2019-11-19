@@ -29,14 +29,14 @@ class ProductosController extends Seguridad {
         session_start();
         $img = $this->ImgModel->GetImagenes();
         $productos = $this->model->GetProductos();
-        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
+        $categorias = $this->categorias_model->GetCategorias();
+        if (isset($_SESSION['id_usuario'])){
             session_abort();
-            $categorias = $this->categorias_model->GetCategorias();
-            $this->view->DisplayProductoAdm($productos,$categorias, $img);
+            $usuario = $this->usrModel->GetUsuarioID($_SESSION['id_usuario']);
         }else{
-            $this->view->DisplayProducto($productos, $img);
-            
+            $usuario = null;
         }
+        $this->view->DisplayProducto($productos, $categorias, $img, $usuario);
     }
 
    
@@ -46,11 +46,15 @@ class ProductosController extends Seguridad {
         session_start();
         $img = $this->ImgModel->GetImagenProducto($id[0]);
         $productos = $this->model->GetProducto($id[0]);
-        if ($_SESSION['admin'] == 1){
-            $usr = $this->usrModel->GetUsuarioID($_SESSION['id_usuario']);
-            $this->view->DisplayDetalle($productos, $img, $usr);
+        if (isset($_SESSION['id_usuario'])){
+            $usuario = $this->usrModel->GetUsuarioID($_SESSION['id_usuario']);
         }else{
-            $this->view->DisplayDetalle($productos, $img);
+            $usuario = null;
+        }
+        if ($usuario != null && $usuario->admin == 0){
+            $this->view->DisplayDetalle($productos, $img, $usuario);
+        }else{
+            $this->view->DisplayDetalle($productos, $img, $usuario);
         }
     }
     // INSERTAR UN PRODUCTO EN LA TABLA

@@ -11,12 +11,26 @@
       <li class="nav-item">
         <a class="nav-link" href="categorias">Categorias</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login">Iniciar Sesion</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="registro">Registrarse</a>
-      </li>
+        {if !isset($usuario) || $usuario eq null}
+          <li class="nav-item">
+            <a class="nav-link" href="login">Iniciar Sesion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro">Registrarse</a>
+          </li>
+        {elseif $usuario->admin eq 0}
+          <li class="nav-item">
+            <a class="nav-link" href="usuarios">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logOut">LogOut</a>
+          </li>
+        {elseif $usuario->admin eq 1}    
+          <li class="nav-item">
+            <a class="nav-link" href="logOut">LogOut</a>
+          </li>
+        {/if}   
+       
     </ul>
   </div>
 </nav>

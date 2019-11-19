@@ -29,10 +29,16 @@ class UsuarioController extends Seguridad{
   }
   public function GetUsuarios(){
     session_start();
+    if (isset($_SESSION['id_usuario'])){
+      session_abort();
+      $usuario = $this->model->GetUsuarioID($_SESSION['id_usuario']);
+    }else{
+        $usuario = null;
+    }
     if (isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
       session_abort();
         $usuarios = $this->model->GetUsuarios();
-        $this->view->DisplayUsuarios($usuarios);
+        $this->view->DisplayUsuarios($usuarios, '', $usuario);
     }else{
         header(LOGIN);
         

@@ -1,8 +1,34 @@
-{include file="top.tpl"}
-{include file="nav_adm.tpl"}
 
 <div class="container-fluid">
-  <div class="row d-flex justify-content-center">
+  {if !isset($usuario) || $usuario eq null  || $usuario->admin == 1}
+    <div class="row d-flex justify-content-center">
+          <div class="col-10 col-lg-8">
+                      
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Detalle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {foreach from=$lista_productos item=producto}
+                    <tr>
+                      <td>{$producto->nombre}</td>
+                      <td scope="col"> <a href="detalle/{$producto->id_producto}">Detalle</th>
+                    </tr>
+                    {/foreach}
+                </tbody>
+              </table>
+
+          </div>
+
+
+      </div>
+
+    </div>
+{elseif $usuario->admin eq 0}
+<div class="row d-flex justify-content-center">
       <div class="col-10 col-lg-8">
           <table class="table table-dark">
               <thead>
@@ -49,8 +75,6 @@
 
 
   </div>
-</div>
-
-
+{/if}  
 
 {include file="footer.tpl"}

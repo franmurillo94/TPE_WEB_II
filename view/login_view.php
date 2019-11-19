@@ -10,7 +10,10 @@ class LoginView{
     $this->smarty->assign('estado',$estado);
     $this->smarty->display('templates/login.tpl');
   }
-  public function DisplayCambioClave( $estado = ""){
+  public function DisplayCambioClave( $estado = "", $usuario = null){ 
+    $this->smarty->display('templates/top.tpl');
+    $this->smarty->assign('usuario',$usuario);
+    $this->smarty->display('templates/nav.tpl');
     $this->smarty->assign('titulo',"CambioClave");
     $this->smarty->assign('estado',$estado);
     $this->smarty->display('templates/cambio_clave.tpl');

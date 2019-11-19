@@ -8,19 +8,13 @@ class CategoriasView {
     function __construct(){
         $this->smarty = new Smarty();
     }
-    // FUNCION QUE MUESTRA LAS CATEGORIAS 
-    public function DisplayCategoria($categoria, $error = ''){ 
+    public function DisplayCategoria($categoria, $usuario = null, $error = ''){ 
+        $this->smarty->display('templates/top.tpl');
+        $this->smarty->assign('usuario',$usuario);
+        $this->smarty->display('templates/nav.tpl');
         $this->smarty->assign('titulo',"Mostrar Categoria");
         $this->smarty->assign('lista_categoria',$categoria);
         $this->smarty->assign('error',$error);
-        $this->smarty->display('templates/categoria_simple.tpl');
-    }
-
-    // FUNCIOIN QUE MUESTRA LAS CATEGORIAS PARA USUARIOS
-    public function DisplayCategoriaAdm($categoria, $error = ''){ 
-        $this->smarty->assign('titulo',"Mostrar Categoria");
-        $this->smarty->assign('lista_categoria',$categoria);
-        $this->smarty->assign('error',$error);
-        $this->smarty->display('templates/categoria_adm.tpl');
+        $this->smarty->display('templates/categorias.tpl');
     }
 }
