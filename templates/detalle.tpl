@@ -30,6 +30,7 @@
  
  <div class="row d-flex justify-content-center" id="app">
 
+
   <div class="col-6 align-self-center">
   <form class="form-signin text-center" >
     <div class="form-group">
@@ -46,10 +47,6 @@
       <label for="coment" >Comentario</label>
       <textarea class="form-control" id="coment" v-model="comentario.comentario" rows="3" required></textarea>
     </div>
-    
-
-
-    
     <input type="text" class="form-control d-none" id="descripcion" v-model ="comentario.nombre ='{{$usuario->nombre}}'">
   </form>
     
