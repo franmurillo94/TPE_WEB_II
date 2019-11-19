@@ -5,18 +5,21 @@ require_once "./model/productos_model.php";
 require_once "./view/productos_view.php";
 require_once "./model/categorias_model.php";
 require_once "./model/img_model.php";
+require_once "./model/usuario_model.php";
 require_once "Seguridad.php";
 
 class ProductosController extends Seguridad {
 
     private $model;
     private $view;
-
+    private $ImgModel;
+    private $usrModel;
 	function __construct(){
         $this->model = new ProductosModel();
         $this->view = new ProductosView();
         $this->categorias_model = new CategoriasModel();
         $this->ImgModel = new ImgModel();
+        $this->usrModel = new UsuarioModel();
     }
 
   
@@ -40,9 +43,15 @@ class ProductosController extends Seguridad {
 
     // TRAE UN PRODUCTO DEL MODEL Y LO MUESTRA EN EL VIEW
     public function Detalle($id){
+        session_start();
         $img = $this->ImgModel->GetImagenProducto($id[0]);
         $productos = $this->model->GetProducto($id[0]);
-        $this->view->DisplayDetalle($productos, $img);
+        if ($_SESSION['admin'] == 1){
+            $usr = $this->usrModel->GetUsuarioID($_SESSION['id_usuario']);
+            $this->view->DisplayDetalle($productos, $img, $usr);
+        }else{
+            $this->view->DisplayDetalle($productos, $img);
+        }
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){

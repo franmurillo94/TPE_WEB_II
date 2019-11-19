@@ -29,7 +29,7 @@ class LoginController{
       if (password_verify($clave, $dbUser->clave)){
           session_start();
           $_SESSION['user'] =  $dbUser->nombre;
-          $_SESSION['userId'] =  $dbUser->id_usuario;
+          $_SESSION['id_usuario'] =  $dbUser->id_usuario;
           $_SESSION['admin'] = $dbUser->admin;
           header(PRODUCTOS);
         }else{

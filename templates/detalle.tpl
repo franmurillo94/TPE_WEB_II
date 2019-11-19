@@ -28,28 +28,35 @@
     </div>
   </div>
  
+ 
  <div class="row d-flex justify-content-center" id="app">
 
- <div class="col-6 align-self-center">
-<form class="form-signin text-center">
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Puntaje</label>
-    <select class="form-control" v-model="comentario.puntaje" id="exampleFormControlSelect1">
-      <option >1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+  <div class="col-6 align-self-center">
+  <form class="form-signin text-center">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Puntaje</label>
+      <select class="form-control" v-model="comentario.puntaje" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="coment" >Comentario</label>
+      <textarea class="form-control" id="coment" v-model="comentario.comentario"rows="3"></textarea>
+    </div>
+  </form>
+    
+ {if $usuario eq null}
+    <h2>Loguearse para poder comentar</h2>
+  {elseif $usuario->admin eq 0}
+    <h2>Aca van las opciones de borrar y demas</h2>
+  {else}    
+    <button  class="btn btn-primary" @click="comentar" value="">Comentar</button>
+  {/if}   
   </div>
-  <div class="form-group">
-    <label for="coment" >Comentario</label>
-    <textarea class="form-control" id="coment" v-model="comentario.comentario"rows="3"></textarea>
-  </div>
-</form>
-
-  <button  class="btn btn-primary" @click="comentar" value="">Comentar</button>
-</div>
 </div>
 
 </div>

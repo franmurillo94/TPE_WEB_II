@@ -12,7 +12,7 @@ class ComentariosApiController {
     }
 
     public function getComentarios($params = null) {
-        $comentarios = $this->model->getComentarios();
+        $comentarios = $this->model->GetComentarios();
         $this->view->response($comentarios, 200);
     }
 
