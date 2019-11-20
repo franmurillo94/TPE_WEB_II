@@ -35,7 +35,7 @@ class ComentariosApiController extends ApiController {
         }
     }
     public function addComentario($params = null){
-        $rta = $this->model->AgregarComentario($params->puntaje, $params->comentario, $params->id_producto, $params->id_usuario);
+        $rta = $this->model->AgregarComentario($params['puntaje'], $params['comentario'], $params['id_producto'], $params['id_usuario']);
         $this->view->response($rta, 200);
     }
 }

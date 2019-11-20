@@ -1,4 +1,4 @@
-
+{include file="top.tpl"}
 <div class="container-fluid">
   {if !isset($usuario) || $usuario eq null  || $usuario->admin == 1}
     <div class="row d-flex justify-content-center">
