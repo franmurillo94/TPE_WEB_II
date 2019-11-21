@@ -7,8 +7,7 @@ class CategoriasView {
     private $smarty;
     function __construct(){
         $this->smarty = new Smarty();
-        
-      $this->smarty->assign('basehref', BASE_URL);
+        $this->smarty->assign('basehref', BASE_URL);
     }
     public function DisplayCategoria($categoria, $usuario = null, $error = ''){ 
         $this->smarty->display('templates/top.tpl');

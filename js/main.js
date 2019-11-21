@@ -21,7 +21,7 @@ const app = new Vue({
                 body: JSON.stringify(this.comentario)
             });
             if (p.ok){
-                console.log(p);
+                console.log(p+"estato bien<");
             }
         } catch (error) {
             console.log(error);

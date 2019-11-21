@@ -1,7 +1,6 @@
 <?php
 require_once("controllerApi.php");
 require_once("./model/comentarios_model.php");
-require_once("JSONView.php");
 class ComentariosApiController extends ApiController {
     private $model;
     private $view;
@@ -36,7 +35,6 @@ class ComentariosApiController extends ApiController {
     }
     public function addComentario($params = []){
         $datos = $this->getData();
-        echo $datos->puntaje    ;
         $rta = $this->model->AgregarComentario($datos->puntaje, $datos->comentario, $datos->id_producto, $datos->id_usuario);
         $this->view->response($rta, 200);
         if ($rta)

@@ -8,7 +8,7 @@ abstract class ApiController {
         $this->view = new JSONView();
         $this->data = file_get_contents("php://input");
     }
-    function getData(){
+    public function getData(){
         return json_decode($this->data);
     }
 }
