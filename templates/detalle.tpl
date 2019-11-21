@@ -47,8 +47,6 @@
       <label for="coment" >Comentario</label>
       <textarea class="form-control" id="coment" v-model="comentario.comentario" rows="3" required></textarea>
     </div>
-    <input type="text" class="form-control d-none" id="descripcion" v-model ="comentario.idUsr ='{{$usuario->id_usuario}}'">
-    <input type="text" class="form-control d-none" id="id_prod" v-model ="comentario.idProducto ='{{$usuario->id_producto}}'">
   </form>
     
  {if $usuario eq null}

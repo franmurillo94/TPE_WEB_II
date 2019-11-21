@@ -1,7 +1,7 @@
 <?php
-require_once("./Models/comentariosModel.php");
-require_once("./api/JSONView.php");
-require_once("./controllerApi.php");
+require_once("./api/controllers/ApiController.php");
+require_once("./../model/comentariosModel.php");
+require_once("./JSONView.php");
 class ComentariosApiController extends ApiController {
     private $model;
     private $view;
@@ -12,7 +12,7 @@ class ComentariosApiController extends ApiController {
         $this->view = new JSONView();
     }
 
-    public function getComentarios($params = null) {
+    public function getComentarios($params = []) {
         $comentarios = $this->model->GetComentarios();
         $this->view->response($comentarios, 200);
     }
@@ -22,7 +22,7 @@ class ComentariosApiController extends ApiController {
      * 
      * $params arreglo asociativo con los parámetros del recurso
      */
-    public function getProducto($params = null) {
+    public function getProducto($params = []) {
         // obtiene el parametro de la ruta
         $id = $params[':ID'];
         
@@ -34,8 +34,14 @@ class ComentariosApiController extends ApiController {
             $this->view->response("No existe la producto con el id={$id}", 404);
         }
     }
-    public function addComentario($params = null){
-        $rta = $this->model->AgregarComentario($params['puntaje'], $params['comentario'], $params['id_producto'], $params['id_usuario']);
+    public function addComentario($params = []){
+        $datos = $this->getData();
+        $rta = $this->model->AgregarComentario($datos->puntaje, $datos->comentario, $datos->id_producto, $datos->id_usuario);
         $this->view->response($rta, 200);
+        if ($rta)
+            $this->view->response($rta, 200);
+        else
+            $this->view->response("Error al insertar", 500);
+
     }
 }
