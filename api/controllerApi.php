@@ -1,4 +1,6 @@
 <?php
+
+require_once("JSONView.php");
 abstract class ApiController {
     protected $view;
     private $data;
