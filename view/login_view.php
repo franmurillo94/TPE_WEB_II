@@ -3,6 +3,7 @@ class LoginView{
   private $smarty;
   function __construct(){
     $this->smarty = new Smarty();
+    $this->smarty->assign('basehref', BASE_URL);
   }
   
   public function DisplayLogin( $estado = ""){

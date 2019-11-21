@@ -7,6 +7,8 @@ class ProductosView {
     private $smarty;
     function __construct(){
         $this->smarty = new Smarty();
+        
+      $this->smarty->assign('basehref', BASE_URL);
     }
     // FUNCION QUE MUESTRA LOS PRODUCTOS
     public function DisplayProducto($producto, $categoria, $img = [], $usuario = null){ 
