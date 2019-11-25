@@ -1,6 +1,6 @@
 <?php
 require_once('apiView.php');
-class apiSecuredController extends api
+class apiSecuredController extends JSONView
 {
     private $logged;
     private $admin;

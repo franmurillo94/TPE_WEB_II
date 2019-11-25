@@ -3,12 +3,10 @@ require_once("controllerApi.php");
 require_once("./model/comentarios_model.php");
 class ComentariosApiController extends ApiController {
     private $model;
-    private $view;
 
     public function __construct() {
         parent::__construct();
-        $this->model = new ComentariosModel();
-        $this->view = new JSONView();
+        $this->model = new comentariosModel();
     }
 
     public function getComentarios($params = []) {
@@ -34,13 +32,15 @@ class ComentariosApiController extends ApiController {
         }
     }
     public function addComentario($params = []){
-        $datos = $this->getData();
-        $rta = $this->model->AgregarComentario($datos->puntaje, $datos->comentario, $datos->id_producto, $datos->id_usuario);
-        $this->view->response($rta, 200);
-        if ($rta)
+        $comentarios = $this->getData();
+        $rta = $this->model->AgregarComentario($comentarios->puntaje, $comentarios->comentario, $comentarios->id_producto, $comentarios->id_usuario);
+        
+        if ($rta){
             $this->view->response($rta, 200);
-        else
+        }        
+        else{
             $this->view->response("Error al insertar", 500);
+        }
 
     }
 }
