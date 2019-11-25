@@ -1,4 +1,4 @@
-{include file="top.tpl"}
+
 
 <div class="container-fluid">
 
