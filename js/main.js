@@ -30,7 +30,7 @@ const app = new Vue({
                 let promesa = await fetch(this.url);
                 if (promesa.ok) {
                     console.log(promesa);
-                    let respuesta = await promesa.text();
+                    let respuesta = await promesa.json();
                     if (respuesta) {
                         console.log(respuesta);
                     }
