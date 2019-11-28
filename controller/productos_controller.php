@@ -51,11 +51,7 @@ class ProductosController extends Seguridad {
         }else{
             $usuario = null;
         }
-        if ($usuario != null && $usuario->admin == 0){
-            $this->view->DisplayDetalle($productos, $img, $usuario);
-        }else{
-            $this->view->DisplayDetalle($productos, $img, $usuario);
-        }
+        $this->view->DisplayDetalle($productos, $img, $usuario);
     }
     // INSERTAR UN PRODUCTO EN LA TABLA
     public function InsertarProducto(){

@@ -10,6 +10,7 @@ $resource = $_GET["resource"];
 // método utilizado
 $method = $_SERVER["REQUEST_METHOD"];
 
+
 // instancia el router
 $router = new Router();
 
