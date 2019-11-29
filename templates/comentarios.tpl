@@ -1,0 +1,1 @@
+ <h2>COMENTARIOS {$producto->nombre}</h2>

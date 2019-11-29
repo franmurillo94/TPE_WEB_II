@@ -1,30 +1,38 @@
 
 "use strict"
 const app = new Vue({
-    el: "#app",
+    el: "#app",  
+    created() {
+       this.getComentario();
+      },
     data: {
         comentario: {
             puntaje: "",
             comentario: "",
-            idUsr: '',
+            usuario: {
+                id_usuario : '',
+                nombre : '',
+                admin : 1
+            },
             idProducto: ''
         },
-        url: "api/comentarios"
+        url: "api/comentarios",
+        respuesta : []
     },
     methods: {
 
         async getComentario() {
-            console.log(this.comentario.puntaje + "   " + this.comentario.comentario + "   " + this.comentario.idUsr + "   " + this.comentario.idProducto);
+            let id = document.querySelector("#idProducto").value.json();
             try {
-                let promesa = await fetch(this.url);
+                let promesa = await fetch(this.url+"/"+id);
                 if (promesa.ok) {
-                    console.log(promesa);
                     let respuesta = await promesa.json();
                     if (respuesta) {
                         console.log(respuesta);
+                       this.respuesta = respuesta;
                     }
                 } else {
-                    alert("to mal");
+                    alert("Ocurrio un error");
                 }
             } catch (error) {
                 alert(error)
@@ -49,7 +57,7 @@ const app = new Vue({
         },
         async deleteComentario() {
             try {
-                 let promesa = await fetch(this.url+"/"+this.comentario.idUsr, {
+                 let promesa = await fetch(this.url+"/"+this.comentario.usuario.idUsr, {
                     method: 'DELETE',
                     headers: {'Content-Type': 'application/json'},       
                      body: JSON.stringify(this.comentario)
