@@ -2,14 +2,18 @@
 
 require_once "./view/usuario_view.php";
 require_once "./model/usuario_model.php";
+require_once "./controller/login_controller.php";
 
 class UsuarioController extends Seguridad{
   private $view;
   private $model;
+  private $login_controller;
 
   function __construct(){
     $this->view = new UsuarioView();
     $this->model = new UsuarioModel();
+    $this->login_controller = new LoginController();
+
   }
   
                                                    // FUNCIONES DE REGISTRO
@@ -25,8 +29,15 @@ class UsuarioController extends Seguridad{
     $clave = $_POST["clave"];
     $hash = password_hash($clave, PASSWORD_DEFAULT);
     $this->model->InsertarUsuario($nombre, $hash, 1);
-    $this->view->DisplayMensaje();
+    //$this->view->DisplayMensaje();
+    $dbUser = $this->model->GetUsuario($nombre);
+    session_start();
+    $_SESSION['user'] =  $dbUser->nombre;
+    $_SESSION['id_usuario'] =  $dbUser->id_usuario;
+    $_SESSION['admin'] = $dbUser->admin;
+    header(PRODUCTOS);
   }
+
   public function GetUsuarios(){
     session_start();
     if (isset($_SESSION['id_usuario'])){
