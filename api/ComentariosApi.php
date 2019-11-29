@@ -10,7 +10,7 @@ class ComentariosApiController extends ApiController {
     }
 
     public function getComentarios($params = []) {
-        $comentarios = $this->model->GetComentarios();
+        $comentarios = $this->model->GetComentarioProducto($params[':ID']);
         $this->view->response($comentarios, 200);
     }
 
