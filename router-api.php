@@ -15,7 +15,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 $router = new Router();
 
 // arma la tabla de ruteo
-$router->addRoute("comentarios", "GET", "ComentariosApiController", "getComentarios");
+$router->addRoute("comentarios/:ID", "DELETE", "ComentariosApiController", "BorrarComentario");
 $router->addRoute("comentarios/:ID", "GET", "ComentariosApiController", "getComentarios");
 $router->addRoute("comentarios", "POST", "ComentariosApiController", "addComentario");
 

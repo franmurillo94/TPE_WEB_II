@@ -1,5 +1,5 @@
 <?php
-class comentariosModel
+class ComentariosModel
 {
   private $db;
   function __construct(){
