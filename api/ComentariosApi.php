@@ -13,34 +13,26 @@ class ComentariosApiController extends ApiController {
         $comentarios = $this->model->GetComentarioProducto($params[':ID']);
         $this->view->response($comentarios, 200);
     }
+
     public function AgregarComentario($params = []){
         $comentarios = $this->getData();
-        $rta = $this->model->AgregarComentario($comentarios->puntaje, $comentarios->comentario, $comentarios->id_producto, $comentarios->id_usuario);
+        $this->model->AgregarComentario($comentarios->puntaje, $comentarios->comentario, $comentarios->id_producto, $comentarios->id_usuario);
         
-        if ($rta){
-            $this->view->response($rta, 200);
-        }        
-        else{
-            $this->view->response("Error al insertar", 500);
-        }
+        
     }
 
-    /**
-     * Obtiene una producto dado un ID
-     * 
-     * $params arreglo asociativo con los parámetros del recurso
-     */
-    public function getProducto($params = []) {
-        // obtiene el parametro de la ruta
-        $id = $params[':ID'];
+
+    public function BorrarComentario($params = []){
+        $id_comentario = $params[':ID'];
+        $comentario = $this->model->getComentario($id_comentario);
+        if ($comentario) {
+                $this->model->BorrarComentario($id_comentario);
+                $this->view->response("Comentario eliminado", 200);
+            }
         
-        $producto = $this->model->GetProducto($id);
-        
-        if ($producto) {
-            $this->view->response($producto, 200);   
-        } else {
-            $this->view->response("No existe la producto con el id={$id}", 404);
-        }
+        else 
+            $this->view->response("Comentario not found", 404);
     }
+
    
 }

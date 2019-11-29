@@ -20,5 +20,12 @@ class ComentariosModel
     $sentencia = $this->db->prepare("DELETE FROM comentarios WHERE id_comentario = ?");
     $sentencia->execute(array($id_comentario));
   }
+  public function getComentario($id_comentario)
+    {
+        $query = $this->db->prepare("SELECT * FROM comentarios WHERE id_comentario = ?");
+        $query->execute(array($id_comentario));
+        $comentario = $query->fetch(PDO::FETCH_OBJ);
+        return $comentario;
+    }
 }
  ?>

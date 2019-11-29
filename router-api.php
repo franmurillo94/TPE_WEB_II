@@ -16,8 +16,8 @@ $router = new Router();
 
 // arma la tabla de ruteo
 $router->addRoute("comentarios/:ID", "DELETE", "ComentariosApiController", "BorrarComentario");
-$router->addRoute("comentarios/:ID", "GET", "ComentariosApiController", "getComentarios");
-$router->addRoute("comentarios", "POST", "ComentariosApiController", "addComentario");
+$router->addRoute("comentarios/:ID", "GET", "ComentariosApiController", "GetComentarios");
+$router->addRoute("comentarios", "POST", "ComentariosApiController", "AgregarComentario");
 
 // rutea
 $router->route($resource, $method);
