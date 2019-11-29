@@ -12,20 +12,8 @@ const app = new Vue({
         url: "api/comentarios"
     },
     methods: {
-        async comentar() {
+        async getComentario() {
             console.log(this.comentario.puntaje + "   " + this.comentario.comentario + "   " + this.comentario.idUsr + "   " + this.comentario.idProducto);
-            // try {
-            //     let p = await fetch(this.url, {
-            //         method: 'POST',
-            //         headers: {'Content-Type': 'application/json'},       
-            //         body: JSON.stringify(this.comentario)
-            //     });
-            //     if (p.ok){
-            //         console.log(p);
-            //     }
-            // } catch (error) {
-            //     console.log(error);
-            // }    
             try {
                 let promesa = await fetch(this.url);
                 if (promesa.ok) {
@@ -40,10 +28,34 @@ const app = new Vue({
             } catch (error) {
                 alert(error)
             }
-
-
-
-
+        },
+        async postComentario() {
+           try {
+                 let promesa = await fetch(this.url, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},       
+                     body: JSON.stringify(this.comentario)
+                 });
+                 if (promesa.ok){
+                     console.log(p);
+                 }
+             } catch (error) {
+                 console.log(error);
+             }    
+        },
+        async deleteComentario() {
+           try {
+                 let promesa = await fetch(this.url+"/"+this.comentario.idUsr, {
+                    method: 'DELETE',
+                    headers: {'Content-Type': 'application/json'},       
+                     body: JSON.stringify(this.comentario)
+                 });
+                 if (promesa.ok){
+                     console.log(p);
+                 }
+             } catch (error) {
+                 console.log(error);
+             }    
         }
     }
 
