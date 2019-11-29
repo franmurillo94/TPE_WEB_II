@@ -9,11 +9,7 @@ const app = new Vue({
         comentario: {
             puntaje: "",
             comentario: "",
-            usuario: {
-                id_usuario : '',
-                nombre : '',
-                admin : 1
-            },
+            idUsr: '',
             idProducto: ''
         },
         url: "api/comentarios",
@@ -22,13 +18,12 @@ const app = new Vue({
     methods: {
 
         async getComentario() {
-            let id = document.querySelector("#idProducto").value.json();
+            let id =  document.querySelector("#idProducto").value;
             try {
                 let promesa = await fetch(this.url+"/"+id);
                 if (promesa.ok) {
                     let respuesta = await promesa.json();
                     if (respuesta) {
-                        console.log(respuesta);
                        this.respuesta = respuesta;
                     }
                 } else {
@@ -57,7 +52,7 @@ const app = new Vue({
         },
         async deleteComentario() {
             try {
-                 let promesa = await fetch(this.url+"/"+this.comentario.usuario.idUsr, {
+                 let promesa = await fetch(this.url+"/"+this.comentario.idUsr, {
                     method: 'DELETE',
                     headers: {'Content-Type': 'application/json'},       
                      body: JSON.stringify(this.comentario)
