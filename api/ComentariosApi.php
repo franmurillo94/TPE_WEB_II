@@ -6,12 +6,23 @@ class ComentariosApiController extends ApiController {
 
     public function __construct() {
         parent::__construct();
-        $this->model = new comentariosModel();
+        $this->model = new ComentariosModel();
     }
 
     public function getComentarios($params = []) {
         $comentarios = $this->model->GetComentarios();
         $this->view->response($comentarios, 200);
+    }
+    public function AgregarComentario($params = []){
+        $comentarios = $this->getData();
+        $rta = $this->model->AgregarComentario($comentarios->puntaje, $comentarios->comentario, $comentarios->id_producto, $comentarios->id_usuario);
+        
+        if ($rta){
+            $this->view->response($rta, 200);
+        }        
+        else{
+            $this->view->response("Error al insertar", 500);
+        }
     }
 
     /**
@@ -31,16 +42,5 @@ class ComentariosApiController extends ApiController {
             $this->view->response("No existe la producto con el id={$id}", 404);
         }
     }
-    public function addComentario($params = []){
-        $comentarios = $this->getData();
-        $rta = $this->model->AgregarComentario($comentarios->puntaje, $comentarios->comentario, $comentarios->id_producto, $comentarios->id_usuario);
-        
-        if ($rta){
-            $this->view->response($rta, 200);
-        }        
-        else{
-            $this->view->response("Error al insertar", 500);
-        }
-
-    }
+   
 }

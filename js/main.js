@@ -9,7 +9,7 @@ const app = new Vue({
             idUsr: 34,
             idProducto: 5
         },
-        url: "detalle/" + 5 + "/api/comentarios"
+        url: "api/comentarios"
     },
     methods: {
         async comentar() {
