@@ -6,12 +6,13 @@ const app = new Vue({
         comentario: {
             puntaje: "",
             comentario: "",
-            idUsr: 34,
-            idProducto: 5
+            idUsr: '',
+            idProducto: ''
         },
         url: "api/comentarios"
     },
     methods: {
+
         async getComentario() {
             console.log(this.comentario.puntaje + "   " + this.comentario.comentario + "   " + this.comentario.idUsr + "   " + this.comentario.idProducto);
             try {
@@ -29,7 +30,7 @@ const app = new Vue({
                 alert(error)
             }
         },
-        async postComentario() {
+        async postComentario() {  
            try {
                  let promesa = await fetch(this.url, {
                     method: 'POST',
@@ -37,14 +38,17 @@ const app = new Vue({
                      body: JSON.stringify(this.comentario)
                  });
                  if (promesa.ok){
-                     console.log(p);
+                     let respuesta = await promesa.text();
+                     if (respuesta){
+                         console.log(respuesta);
+                     }
                  }
              } catch (error) {
                  console.log(error);
-             }    
+             }  
         },
         async deleteComentario() {
-           try {
+            try {
                  let promesa = await fetch(this.url+"/"+this.comentario.idUsr, {
                     method: 'DELETE',
                     headers: {'Content-Type': 'application/json'},       

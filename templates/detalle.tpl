@@ -47,6 +47,8 @@
       <label for="coment" >Comentario</label>
       <textarea class="form-control" id="coment" v-model="comentario.comentario" rows="3" required></textarea>
     </div>
+    <input type="text" id="idusuario" class="form-control d-none"  v-model="comentario.idUsr = {$usuario->id_usuario}">
+    <input type="text" id="idcomentario" class="form-control d-none" v-model="comentario.idProducto = {$producto->id_producto}">
   </form>
     
  {if $usuario eq null}
@@ -54,7 +56,7 @@
   {elseif $usuario->admin eq 0}
     <h2>Aca van las opciones de borrar y demas</h2>
   {else}    
-    <button  class="btn btn-primary" @click="comentar" value="">Comentar</button>
+    <button  class="btn btn-primary" @click="postComentario" value="">Comentar</button>
   {/if}   
   </div>
 </div>
